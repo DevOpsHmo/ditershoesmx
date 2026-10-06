@@ -81,10 +81,15 @@ body.home .hero { flex: 1; }
 .lede-break { display: none; }
 .lede-sizes { white-space: nowrap; }
 .to-top {
+  position: fixed;
+  left: 50%;
+  bottom: 5.4rem;
+  transform: translateX(-50%);
+  z-index: 6;
   display: block;
   width: 2.6rem;
   height: 2.6rem;
-  margin: 1.15rem auto;
+  margin: 0;
   padding: 0;
   border: none;
   background: transparent;
@@ -296,7 +301,6 @@ footer a {
   .lede-break { display: block; }
   .catalog { padding: 0.85rem 0.75rem 0; }
   footer { padding-top: 0.7rem; }
-  .to-top { margin: 1.15rem auto; }
   .catalog h2 { font-size: 2.2rem; margin-bottom: 0.35rem; }
   .filters {
     position: sticky;

@@ -3,7 +3,8 @@ const toTop = document.querySelector(".to-top");
 function updateToTop() {
   const doc = document.documentElement;
   const canScroll = doc.scrollHeight > window.innerHeight + 48;
-  const atBottom = window.scrollY + window.innerHeight >= doc.scrollHeight - 28;
+  const distance = doc.scrollHeight - (window.scrollY + window.innerHeight);
+  const atBottom = distance <= 72;
   toTop.hidden = !(canScroll && atBottom);
 }
 
