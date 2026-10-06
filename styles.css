@@ -68,8 +68,9 @@ body.home .hero { flex: 1; }
 .hero h1 {
   font-family: "Cormorant Garamond", serif;
   font-weight: 500;
-  font-size: clamp(4.5rem, 12vw, 9rem);
-  line-height: 0.85;
+  font-size: clamp(2.8rem, 8vw, 7rem);
+  line-height: 0.9;
+  letter-spacing: 0.04em;
   margin: 0;
   color: var(--rose);
 }
@@ -271,7 +272,7 @@ footer a {
     min-height: 0;
     padding: 0 7vw;
   }
-  body.home .hero h1 { font-size: clamp(3.1rem, 16vh, 5.4rem); }
+  body.home .hero h1 { font-size: clamp(2.15rem, 8.6vw, 3.4rem); letter-spacing: 0.02em; }
   body.home .lede {
     margin: 0.9rem auto 1.15rem;
     font-size: clamp(0.92rem, 2.4vh, 1.05rem);
