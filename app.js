@@ -220,8 +220,25 @@ const dialog = document.getElementById("lightbox");
 const dialogImg = document.getElementById("lightbox-img");
 const dialogCap = document.getElementById("lightbox-cap");
 
+const viewport = document.querySelector('meta[name="viewport"]');
+const zoomOff = "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover";
+const zoomOn = "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=4, user-scalable=yes, viewport-fit=cover";
+
+function setPageZoom(allow) {
+  viewport.setAttribute("content", allow ? zoomOn : zoomOff);
+}
+
+function openPhoto() {
+  setPageZoom(true);
+  dialog.showModal();
+}
+
+dialog.addEventListener("close", () => setPageZoom(false));
 dialog.addEventListener("click", (event) => {
   if (event.target === dialog) dialog.close();
+});
+document.addEventListener("gesturestart", (event) => {
+  if (!dialog.open) event.preventDefault();
 });
 
 let active = "todos";
@@ -345,14 +362,14 @@ grid.addEventListener("click", (e) => {
     dialogImg.src = img.src;
     dialogImg.alt = img.alt;
     dialogCap.textContent = img.alt;
-    dialog.showModal();
+    openPhoto();
   }
 
   if (wornBtn && !wornBtn.hidden) {
     dialogImg.src = wornBtn.dataset.worn;
     dialogImg.alt = `${model.name} puesta`;
     dialogCap.textContent = `${model.name} · foto puesta`;
-    dialog.showModal();
+    openPhoto();
   }
 });
 
