@@ -81,8 +81,10 @@ function money(n) {
   return `$${n}`;
 }
 
-function waLink(model, color) {
-  const text = `Hola, quiero pedir ${model.name} color ${color.name}. Talla: `;
+const SIZES = ["3", "4", "5", "6"];
+
+function waLink(model, color, size) {
+  const text = `Hola, quiero pedir ${model.name} color ${color.name}. Talla: ${size} MX`;
   return `https://wa.me/${WA}?text=${encodeURIComponent(text)}`;
 }
 
@@ -105,11 +107,15 @@ function card(model) {
         <p class="model">${model.name}</p>
         <h3 class="color-name">${color.name}</h3>
         <p class="meta">Tallas ${model.sizes}</p>
+        <div class="sizes" role="group" aria-label="Talla MX">
+          ${SIZES.map((s) => `<button type="button" data-size="${s}">${s}</button>`).join("")}
+        </div>
+        <p class="size-hint" hidden>Elige una talla</p>
         <p class="price">${money(model.price)}</p>
         <div class="swatches">
           ${model.colors.map((c, i) => `<button type="button" class="${i === 0 ? "active" : ""}" style="background:${c.hex}" data-index="${i}" aria-label="${c.name}"></button>`).join("")}
         </div>
-        <a class="btn order-link" href="${waLink(model, color)}" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+        <a class="btn order-link" href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>
         ${worn}
       </div>
     </article>`;
@@ -128,7 +134,25 @@ filters.addEventListener("click", (e) => {
   render();
 });
 
+function selectedColor(cardEl, model) {
+  const activeSwatch = cardEl.querySelector(".swatches button.active");
+  const index = activeSwatch ? Number(activeSwatch.dataset.index) : 0;
+  return model.colors[index];
+}
+
+function syncOrder(cardEl, model) {
+  const size = cardEl.dataset.size;
+  const link = cardEl.querySelector(".order-link");
+  if (!size) {
+    link.href = "#";
+    return;
+  }
+  link.href = waLink(model, selectedColor(cardEl, model), size);
+}
+
 grid.addEventListener("click", (e) => {
+  const sizeBtn = e.target.closest(".sizes button");
+  const order = e.target.closest(".order-link");
   const swatch = e.target.closest(".swatches button");
   const img = e.target.closest(".card img");
   const wornBtn = e.target.closest(".worn");
@@ -136,14 +160,27 @@ grid.addEventListener("click", (e) => {
   if (!cardEl) return;
   const model = models.find((m) => m.id === cardEl.dataset.model);
 
+  if (sizeBtn) {
+    cardEl.dataset.size = sizeBtn.dataset.size;
+    cardEl.querySelectorAll(".sizes button").forEach((b) => b.classList.remove("active"));
+    sizeBtn.classList.add("active");
+    cardEl.querySelector(".size-hint").hidden = true;
+    syncOrder(cardEl, model);
+  }
+
+  if (order && !cardEl.dataset.size) {
+    e.preventDefault();
+    cardEl.querySelector(".size-hint").hidden = false;
+  }
+
   if (swatch) {
     const color = model.colors[Number(swatch.dataset.index)];
     cardEl.querySelector("img").src = color.image;
     cardEl.querySelector("img").alt = `${model.name} ${color.name}`;
     cardEl.querySelector(".color-name").textContent = color.name;
-    cardEl.querySelector(".order-link").href = waLink(model, color);
     cardEl.querySelectorAll(".swatches button").forEach((b) => b.classList.remove("active"));
     swatch.classList.add("active");
+    syncOrder(cardEl, model);
     const worn = cardEl.querySelector(".worn");
     if (worn) {
       if (color.worn) {

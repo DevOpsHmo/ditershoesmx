@@ -53,6 +53,11 @@ body.home .hero { flex: 1; }
   min-height: 70vh;
   padding: 10vh 8vw 6vh;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 .eyebrow {
   letter-spacing: 0.42em;
@@ -68,8 +73,8 @@ body.home .hero { flex: 1; }
   margin: 0;
   color: var(--rose);
 }
-.hero h1 span { display: block; font-style: italic; margin-left: 8vw; }
-.lede { max-width: 34rem; font-weight: 300; line-height: 1.6; margin: 1.5rem 0 2rem; }
+.hero h1 span { display: block; font-style: italic; }
+.lede { max-width: 34rem; font-weight: 300; line-height: 1.6; margin: 1.5rem auto 2rem; }
 .btn {
   display: inline-flex;
   align-items: center;
@@ -139,6 +144,19 @@ h2 {
 .card h3 { margin: 0; font-weight: 500; font-size: 1.15rem; }
 .meta { margin: 0; color: var(--ink); font-weight: 300; }
 .price { font-weight: 600; }
+.sizes { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.sizes button {
+  font: inherit;
+  min-width: 2.4rem;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 0.3rem 0.55rem;
+  cursor: pointer;
+}
+.sizes button.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+.size-hint { margin: 0; font-size: 0.85rem; color: #9a4d45; min-height: 1.1em; }
 .swatches { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .swatches button {
   width: 22px; height: 22px; border-radius: 50%;
