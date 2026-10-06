@@ -80,24 +80,6 @@ body.home .hero { flex: 1; }
 .lede { max-width: 34rem; font-weight: 300; line-height: 1.6; margin: 1.5rem auto 2rem; }
 .lede-break { display: none; }
 .lede-sizes { white-space: nowrap; }
-.to-top {
-  position: fixed;
-  left: 50%;
-  bottom: 5.4rem;
-  transform: translateX(-50%);
-  z-index: 6;
-  display: block;
-  width: 2.6rem;
-  height: 2.6rem;
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: transparent;
-  color: #c4a193;
-  cursor: pointer;
-}
-.to-top[hidden] { display: none; }
-.to-top svg { width: 100%; height: 100%; }
 [hidden] { display: none !important; }
 .btn {
   display: inline-flex;
