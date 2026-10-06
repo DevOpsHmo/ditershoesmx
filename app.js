@@ -75,6 +75,10 @@ const dialog = document.getElementById("lightbox");
 const dialogImg = document.getElementById("lightbox-img");
 const dialogCap = document.getElementById("lightbox-cap");
 
+dialog.addEventListener("click", (event) => {
+  if (event.target === dialog) dialog.close();
+});
+
 let active = "todos";
 
 function money(n) {
