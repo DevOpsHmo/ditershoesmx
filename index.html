@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ditershoes · Catálogo de tenis</title>
+  <meta name="description" content="Catálogo de tenis Ditershoes. Tallas 3 al 6 MX. Pedidos por WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio">DITERSHOES</a>
+    <nav>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#pedido">Pedido</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <p class="eyebrow">DITERSHOES</p>
+      <h1>Tenis<br /><span>Catálogo</span></h1>
+      <p class="lede">Modelos Dupe Samba, Samba Low, Samba Jane, Ofelia, Matilda y Tenis NB. Tallas del 3 al 6 MX.</p>
+      <a class="btn" href="#catalogo">Ver modelos</a>
+      <div class="blob blob-pink"></div>
+      <div class="blob blob-sand"></div>
+    </section>
+
+    <section class="catalog" id="catalogo">
+      <div class="section-head">
+        <h2>Modelos</h2>
+        <div class="filters" id="filters"></div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section class="order" id="pedido">
+      <h2>Realiza tu pedido</h2>
+      <p>Escríbenos por WhatsApp y te confirmamos talla y color.</p>
+      <div class="phones">
+        <a class="btn" id="wa-main" href="https://wa.me/526621746719" target="_blank" rel="noopener">WhatsApp 662 174 6719</a>
+        <a class="btn btn-ghost" href="https://wa.me/526621383780" target="_blank" rel="noopener">WhatsApp 662 138 3780</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>DITERSHOES</strong>
+    <span>662 174 6719 · 662 138 3780</span>
+  </footer>
+
+  <dialog id="lightbox">
+    <form method="dialog"><button class="close" aria-label="Cerrar">×</button></form>
+    <img id="lightbox-img" alt="" />
+    <p id="lightbox-cap"></p>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
