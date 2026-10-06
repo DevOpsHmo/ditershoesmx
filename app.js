@@ -276,9 +276,7 @@ function renderFilters() {
 
 function card(model) {
   const color = model.colors[0];
-  const worn = color.worn
-    ? `<button type="button" class="btn btn-ghost worn" data-worn="${color.worn}">Ver puesta</button>`
-    : "";
+  const worn = `<button type="button" class="btn btn-ghost worn" ${color.worn ? `data-worn="${color.worn}"` : "hidden"}>Ver puesta</button>`;
   return `
     <article class="card" data-model="${model.id}">
       <img src="${color.image}" alt="${model.name} ${color.name}" />
@@ -294,8 +292,10 @@ function card(model) {
         <div class="swatches">
           ${model.colors.map((c, i) => `<button type="button" class="${i === 0 ? "active" : ""}" style="background:${c.hex}" data-index="${i}" aria-label="${c.name}"></button>`).join("")}
         </div>
-        <a class="btn order-link" href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-        ${worn}
+        <div class="card-actions">
+          <a class="btn order-link" href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          ${worn}
+        </div>
       </div>
     </article>`;
 }
