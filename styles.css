@@ -75,6 +75,23 @@ body.home .hero { flex: 1; }
 }
 .hero h1 span { display: block; font-style: italic; }
 .lede { max-width: 34rem; font-weight: 300; line-height: 1.6; margin: 1.5rem auto 2rem; }
+.lede-break { display: none; }
+.lede-sizes { white-space: nowrap; }
+.to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 4.2rem;
+  width: 2.6rem;
+  height: 2.6rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #c4a193;
+  cursor: pointer;
+  z-index: 6;
+}
+.to-top[hidden] { display: none; }
+.to-top svg { width: 100%; height: 100%; }
 .btn {
   display: inline-flex;
   align-items: center;
@@ -218,6 +235,7 @@ footer {
 }
 
 @media (max-width: 720px) {
+  .lede-break { display: block; }
   .catalog { padding: 0.85rem 0.75rem 2.5rem; }
   .catalog h2 { font-size: 2.2rem; margin-bottom: 0.35rem; }
   .filters {
