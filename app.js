@@ -254,19 +254,20 @@ function waLink(model, color, size) {
   return `https://wa.me/${WA}?text=${encodeURIComponent(text)}`;
 }
 
+const categoryNames = { tenis: "Tenis", botas: "Botas", flats: "Flats" };
+
 for (const model of models) {
   const src = model.colors[0].image;
   if (src.includes("/botas-")) model.category = "botas";
-  if (src.includes("/flats-")) model.category = "flats";
+  else if (src.includes("/flats-")) model.category = "flats";
+  else model.category = "tenis";
 }
 
 function renderFilters() {
   const items = [{ id: "todos", name: "Todos" }];
   for (const model of models) {
-    if (!model.category) {
-      items.push({ id: model.id, name: model.name });
-    } else if (!items.some((item) => item.id === model.category)) {
-      items.push({ id: model.category, name: model.category === "botas" ? "Botas" : "Flats" });
+    if (!items.some((item) => item.id === model.category)) {
+      items.push({ id: model.category, name: categoryNames[model.category] });
     }
   }
   filters.innerHTML = items.map((item) =>
