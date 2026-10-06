@@ -212,6 +212,10 @@ footer {
   font-size: 0.78rem;
   color: var(--ink);
 }
+footer a {
+  color: var(--ink);
+  text-decoration: none;
+}
 
 #lightbox {
   border: none;
