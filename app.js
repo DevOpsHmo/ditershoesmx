@@ -254,10 +254,23 @@ function waLink(model, color, size) {
   return `https://wa.me/${WA}?text=${encodeURIComponent(text)}`;
 }
 
+for (const model of models) {
+  const src = model.colors[0].image;
+  if (src.includes("/botas-")) model.category = "botas";
+  if (src.includes("/flats-")) model.category = "flats";
+}
+
 function renderFilters() {
-  const items = [{ id: "todos", name: "Todos" }, ...models];
-  filters.innerHTML = items.map((m) =>
-    `<button type="button" data-id="${m.id}" class="${m.id === active ? "active" : ""}">${m.name}</button>`
+  const items = [{ id: "todos", name: "Todos" }];
+  for (const model of models) {
+    if (!model.category) {
+      items.push({ id: model.id, name: model.name });
+    } else if (!items.some((item) => item.id === model.category)) {
+      items.push({ id: model.category, name: model.category === "botas" ? "Botas" : "Flats" });
+    }
+  }
+  filters.innerHTML = items.map((item) =>
+    `<button type="button" data-id="${item.id}" class="${item.id === active ? "active" : ""}">${item.name}</button>`
   ).join("");
 }
 
@@ -288,7 +301,7 @@ function card(model) {
 }
 
 function render() {
-  const list = active === "todos" ? models : models.filter((m) => m.id === active);
+  const list = active === "todos" ? models : models.filter((m) => m.category === active || m.id === active);
   grid.innerHTML = list.map(card).join("");
 }
 
