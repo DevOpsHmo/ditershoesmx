@@ -153,11 +153,11 @@ const models = [
     { name: "Latte", hex: "#cbb8a4", image: "images/flats-p4-0.jpg" },
     { name: "Negro", hex: "#3a2a24", image: "images/flats-p4-1.jpg" }
   ]},
-  { id: "demi", name: "Demi", price: 485, sizes: "2 al 7 MX", sizeOptions: ["2", "3", "4", "5", "6", "7"], colors: [
+  { id: "demi", name: "Demi", price: 485, sizes: "3 al 7 MX", colors: [
     { name: "Café", hex: "#6b4636", image: "images/flats-p5-0.jpg" },
     { name: "Latte", hex: "#d8c3ae", image: "images/flats-p5-1.jpg" }
   ]},
-  { id: "viviana", name: "Viviana", price: 490, sizes: "2 al 7 MX", sizeOptions: ["2", "3", "4", "5", "6", "7"], colors: [
+  { id: "viviana", name: "Viviana", price: 490, sizes: "3 al 7 MX", colors: [
     { name: "Blanco", hex: "#f7f7f7", image: "images/flats-p6-0.jpg" },
     { name: "Maquillaje", hex: "#e4cfc0", image: "images/flats-p6-1.jpg" }
   ]},
@@ -184,7 +184,7 @@ const models = [
     { name: "Negro", hex: "#111", image: "images/flats-p11-1.jpg" },
     { name: "Late", hex: "#e6e2da", image: "images/flats-p11-2.jpg" }
   ]},
-  { id: "alemania", name: "Alemania", price: 485, sizes: "2 al 7 MX", sizeOptions: ["2", "3", "4", "5", "6", "7"], colors: [
+  { id: "alemania", name: "Alemania", price: 485, sizes: "3 al 7 MX", colors: [
     { name: "Plata", hex: "#c5c8cc", image: "images/flats-p12-0.jpg" },
     { name: "Late", hex: "#e6dfd4", image: "images/flats-p12-1.jpg" },
     { name: "Arenilla", hex: "#c4a07a", image: "images/flats-p12-2.jpg" }
@@ -195,7 +195,7 @@ const models = [
     { name: "Negro", hex: "#3a2a1c", image: "images/flats-p13-2.jpg" },
     { name: "Plata", hex: "#e8c4a0", image: "images/flats-p13-3.jpg" }
   ]},
-  { id: "boston", name: "Boston", price: 700, sizes: "3 al 10 MX · Unisex", sizeOptions: ["3", "4", "5", "6", "7", "8", "9", "10"], colors: [
+  { id: "boston", name: "Boston", price: 700, sizes: "3 al 7 MX · Unisex", colors: [
     { name: "Verde", hex: "#6d6848", image: "images/flats-p14-0.jpg" },
     { name: "Negro", hex: "#2a2a28", image: "images/flats-p14-1.jpg" },
     { name: "Arena", hex: "#e6d3bc", image: "images/flats-p14-2.jpg" },
@@ -247,7 +247,7 @@ function money(n) {
   return `$${n}`;
 }
 
-const SIZES = ["3", "4", "5", "6"];
+const SIZES = ["3", "4", "5", "6", "7"];
 
 function waLink(model, color, size) {
   const text = `Hola, quiero pedir ${model.name} color ${color.name}. Talla: ${size} MX`;
@@ -285,7 +285,7 @@ function card(model) {
         <h3 class="color-name">${color.name}</h3>
         <p class="meta">Tallas ${model.sizes}</p>
         <div class="sizes" role="group" aria-label="Talla MX">
-          ${(model.sizeOptions || SIZES).map((s) => `<button type="button" data-size="${s}">${s}</button>`).join("")}
+          ${SIZES.map((s) => `<button type="button" data-size="${s}">${s}</button>`).join("")}
         </div>
         <p class="size-hint" hidden>Elige una talla</p>
         <p class="price">${money(model.price)}</p>
