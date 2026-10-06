@@ -75,7 +75,8 @@ body.home .hero { flex: 1; }
   color: var(--rose);
 }
 .hero h1 span { display: block; font-style: italic; }
-.home-brand { font-style: normal; letter-spacing: 0.06em; }
+.home-brand { font-style: normal; font-weight: 700; letter-spacing: 0.04em; font-size: 1.15em; }
+.hero h1 span:last-child { font-weight: 500; font-size: 0.82em; }
 .lede { max-width: 34rem; font-weight: 300; line-height: 1.6; margin: 1.5rem auto 2rem; }
 .lede-break { display: none; }
 .lede-sizes { white-space: nowrap; }
@@ -275,12 +276,13 @@ footer a {
   }
   body.home .hero h1 { font-size: 1rem; letter-spacing: 0; width: 100%; }
   body.home .home-brand {
-    font-size: 8.2vw;
-    letter-spacing: 0.045em;
+    font-size: 9.4vw;
+    font-weight: 700;
+    letter-spacing: 0.02em;
     line-height: 1;
     white-space: nowrap;
   }
-  body.home .hero h1 span:last-child { font-size: 15vw; margin-top: 0.2rem; }
+  body.home .hero h1 span:last-child { font-size: 8.2vw; font-weight: 500; margin-top: 0.35rem; }
   body.home .lede {
     margin: 0.9rem auto 1.15rem;
     font-size: clamp(0.92rem, 2.4vh, 1.05rem);
