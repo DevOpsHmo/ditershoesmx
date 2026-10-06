@@ -244,6 +244,27 @@ footer a {
 }
 
 @media (max-width: 720px) {
+  body.home {
+    height: 100dvh;
+    min-height: 100dvh;
+    overflow: hidden;
+  }
+  body.home .site-header { position: static; }
+  body.home .hero {
+    min-height: 0;
+    padding: 0 7vw;
+  }
+  body.home .hero h1 { font-size: clamp(3.1rem, 16vh, 5.4rem); }
+  body.home .lede {
+    margin: 0.9rem auto 1.15rem;
+    font-size: clamp(0.92rem, 2.4vh, 1.05rem);
+    max-width: 20rem;
+  }
+  body.home .blob-pink { width: 48vw; height: 30vw; right: -8vw; }
+  body.home .blob-sand { width: 46vw; height: 28vh; left: -10vw; bottom: 0; }
+  body.home footer {
+    padding: 0.65rem 6vw calc(0.85rem + env(safe-area-inset-bottom));
+  }
   .lede-break { display: block; }
   .catalog { padding: 0.85rem 0.75rem 0; }
   footer { padding-top: 0.7rem; }
