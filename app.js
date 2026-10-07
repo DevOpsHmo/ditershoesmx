@@ -247,7 +247,10 @@ function money(n) {
   return `$${n}`;
 }
 
-const SIZES = ["3", "4", "5", "6", "7"];
+function sizeButtons(model) {
+  if (model.category === "flats" && model.sizes.includes("3 al 7")) return ["3", "4", "5", "6", "7"];
+  return ["3", "4", "5", "6"];
+}
 
 function waLink(model, color, size) {
   const text = `Hola, quiero pedir ${model.name} color ${color.name}. Talla: ${size} MX`;
@@ -285,7 +288,7 @@ function card(model) {
         <h3 class="color-name">${color.name}</h3>
         <p class="meta">Tallas ${model.sizes}</p>
         <div class="sizes" role="group" aria-label="Talla MX">
-          ${SIZES.map((s) => `<button type="button" data-size="${s}">${s}</button>`).join("")}
+          ${sizeButtons(model).map((s) => `<button type="button" data-size="${s}">${s}</button>`).join("")}
         </div>
         <p class="size-hint" hidden>Elige una talla</p>
         <p class="price">${money(model.price)}</p>
