@@ -234,12 +234,11 @@ footer a {
   width: auto;
   height: auto;
   max-width: min(90vw, 680px);
-  max-height: calc(100dvh - 6.2rem);
+  max-height: calc(100dvh - 4.2rem);
   object-fit: contain;
   border-radius: 0.55rem;
   touch-action: pinch-zoom;
 }
-#lightbox p { margin: 0.45rem 0.15rem 0.1rem; }
 .close {
   position: absolute;
   right: 0.7rem;

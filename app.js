@@ -218,7 +218,6 @@ const filters = document.getElementById("filters");
 const grid = document.getElementById("grid");
 const dialog = document.getElementById("lightbox");
 const dialogImg = document.getElementById("lightbox-img");
-const dialogCap = document.getElementById("lightbox-cap");
 
 const viewport = document.querySelector('meta[name="viewport"]');
 const zoomOff = "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover";
@@ -374,14 +373,12 @@ grid.addEventListener("click", (e) => {
   if (img) {
     dialogImg.src = img.src;
     dialogImg.alt = img.alt;
-    dialogCap.textContent = img.alt;
     openPhoto();
   }
 
   if (wornBtn && !wornBtn.hidden) {
     dialogImg.src = wornBtn.dataset.worn;
     dialogImg.alt = `${model.name} puesta`;
-    dialogCap.textContent = `${model.name} · foto puesta`;
     openPhoto();
   }
 });
