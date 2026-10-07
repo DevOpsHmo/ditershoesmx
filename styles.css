@@ -221,20 +221,20 @@ footer a {
   border: none;
   border-radius: 1rem;
   padding: 0.75rem;
-  width: auto;
-  max-width: min(92vw, 720px);
-  max-height: calc(100dvh - 1.5rem);
+  width: min(94vw, 720px);
+  max-height: calc(100dvh - 1.25rem);
   overflow: hidden;
+  box-sizing: border-box;
   background: var(--cream);
 }
 #lightbox::backdrop { background: rgba(74, 55, 50, 0.55); }
 #lightbox img {
   display: block;
-  width: auto;
-  height: auto;
-  max-width: min(88vw, 680px);
-  max-height: calc(100dvh - 6.5rem);
+  width: 100%;
+  height: calc(100dvh - 7.5rem);
   object-fit: contain;
+  object-position: center;
+  background: #efe6de;
   border-radius: 0.6rem;
   touch-action: pinch-zoom;
 }
