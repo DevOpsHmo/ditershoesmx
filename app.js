@@ -147,15 +147,18 @@ const models = [
   ]},
   { id: "mary-jane", name: "Mary Jane", price: 485, sizes: "3 al 6 MX", colors: [
     { name: "Negro", hex: "#1c1c1c", image: "images/flats-p3-0.jpg" },
-    { name: "Vino", hex: "#6b2430", image: "images/flats-p3-4.jpg" }
+    { name: "Vino", hex: "#6b2430", image: "images/flats-p3-1.jpg" },
+    { name: "Rojo", hex: "#d0122a", image: "images/flats-p3-2.jpg" },
+    { name: "Café", hex: "#8d7568", image: "images/flats-p3-3.jpg" },
+    { name: "Leopardo", hex: "#8a6238", image: "images/flats-p3-4.jpg" }
   ]},
   { id: "fer", name: "Fer", price: 485, sizes: "3 al 6 MX", colors: [
-    { name: "Latte", hex: "#cbb8a4", image: "images/flats-p4-0.jpg" },
-    { name: "Negro", hex: "#3a2a24", image: "images/flats-p4-1.jpg" }
+    { name: "Negro", hex: "#1c1c1c", image: "images/flats-p4-0.jpg" },
+    { name: "Late", hex: "#f2f0ec", image: "images/flats-p4-1.jpg" }
   ]},
   { id: "demi", name: "Demi", price: 485, sizes: "3 al 7 MX", colors: [
     { name: "Café", hex: "#6b4636", image: "images/flats-p5-0.jpg" },
-    { name: "Latte", hex: "#d8c3ae", image: "images/flats-p5-1.jpg" }
+    { name: "Late", hex: "#f7f4ef", image: "images/flats-p5-1.jpg" }
   ]},
   { id: "viviana", name: "Viviana", price: 490, sizes: "3 al 7 MX", colors: [
     { name: "Blanco", hex: "#f7f7f7", image: "images/flats-p6-0.jpg" },
@@ -174,26 +177,26 @@ const models = [
     { name: "Negro", hex: "#2a2a2a", image: "images/flats-p9-1.jpg" }
   ]},
   { id: "lulu", name: "Lulu", price: 490, sizes: "3 al 6 MX", colors: [
-    { name: "Negro y late", hex: "#f2f2f2", image: "images/flats-p10-0.jpg" }
+    { name: "Blanco, vino y negro", hex: "#6b2430", image: "images/flats-p10-0.jpg" }
   ]},
   { id: "malibu", name: "Malibu", price: 490, sizes: "3 al 6 MX", colors: [
     { name: "Leopardo", hex: "#8a6238", image: "images/flats-p10-1.jpg" }
   ]},
   { id: "venezuela", name: "Venezuela", price: 490, sizes: "3 al 6 MX", colors: [
-    { name: "Café", hex: "#6b4a28", image: "images/flats-p11-0.jpg" },
+    { name: "Late", hex: "#e4d2c8", image: "images/flats-p11-0.jpg" },
     { name: "Negro", hex: "#111", image: "images/flats-p11-1.jpg" },
-    { name: "Late", hex: "#e6e2da", image: "images/flats-p11-2.jpg" }
+    { name: "Café", hex: "#4a3028", image: "images/flats-p11-2.jpg" }
   ]},
   { id: "alemania", name: "Alemania", price: 485, sizes: "3 al 7 MX", colors: [
     { name: "Plata", hex: "#c5c8cc", image: "images/flats-p12-0.jpg" },
     { name: "Late", hex: "#e6dfd4", image: "images/flats-p12-1.jpg" },
-    { name: "Arenilla", hex: "#c4a07a", image: "images/flats-p12-2.jpg" }
+    { name: "Café", hex: "#6b4632", image: "images/flats-p12-2.jpg" }
   ]},
   { id: "maya", name: "Maya", price: 485, sizes: "3 al 6 MX", colors: [
     { name: "Oro", hex: "#d4b483", image: "images/flats-p13-0.jpg" },
     { name: "Maquillaje", hex: "#e6cbb8", image: "images/flats-p13-1.jpg" },
-    { name: "Negro", hex: "#3a2a1c", image: "images/flats-p13-2.jpg" },
-    { name: "Plata", hex: "#e8c4a0", image: "images/flats-p13-3.jpg" }
+    { name: "Plata", hex: "#d5d6d8", image: "images/flats-p13-2.jpg" },
+    { name: "Negro", hex: "#1a1a1a", image: "images/flats-p13-3.jpg" }
   ]},
   { id: "boston", name: "Boston", price: 700, sizes: "3 al 7 MX · Unisex", colors: [
     { name: "Verde", hex: "#6d6848", image: "images/flats-p14-0.jpg" },
@@ -202,15 +205,15 @@ const models = [
     { name: "Café", hex: "#6b4632", image: "images/flats-p14-3.jpg" }
   ]},
   { id: "osiris", name: "Osiris", price: 485, sizes: "3 al 6 MX", colors: [
-    { name: "Café", hex: "#6b5344", image: "images/flats-p15-0.jpg" },
-    { name: "Vino", hex: "#f0ebe4", image: "images/flats-p15-1.jpg" },
+    { name: "Miga", hex: "#f3eee6", image: "images/flats-p15-0.jpg" },
+    { name: "Vino", hex: "#6b2430", image: "images/flats-p15-1.jpg" },
     { name: "Negro", hex: "#111", image: "images/flats-p15-2.jpg" }
   ]},
   { id: "argentina", name: "Argentina", price: 485, sizes: "3 al 6 MX", colors: [
-    { name: "Miga", hex: "#d8cfc6", image: "images/flats-p16-0.jpg" },
-    { name: "Vino", hex: "#f6f1e6", image: "images/flats-p16-1.jpg" },
-    { name: "Café", hex: "#8a6a52", image: "images/flats-p16-2.jpg" },
-    { name: "Negro", hex: "#5c5044", image: "images/flats-p16-3.jpg" }
+    { name: "Miga", hex: "#e6dfd4", image: "images/flats-p16-2.jpg" },
+    { name: "Vino", hex: "#6b2430", image: "images/flats-p16-0.jpg" },
+    { name: "Café", hex: "#c4956a", image: "images/flats-p16-1.jpg" },
+    { name: "Negro", hex: "#1a1a1a", image: "images/flats-p16-3.jpg" }
   ]}
 ];
 
