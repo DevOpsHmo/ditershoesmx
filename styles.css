@@ -220,8 +220,9 @@ footer a {
   margin: 0;
   border: none;
   border-radius: 1rem;
-  padding: 0.75rem;
-  width: min(94vw, 720px);
+  padding: 0.45rem 0.45rem 0.55rem;
+  width: fit-content;
+  max-width: min(94vw, 720px);
   max-height: calc(100dvh - 1.25rem);
   overflow: hidden;
   box-sizing: border-box;
@@ -230,19 +231,19 @@ footer a {
 #lightbox::backdrop { background: rgba(74, 55, 50, 0.55); }
 #lightbox img {
   display: block;
-  width: 100%;
-  height: calc(100dvh - 7.5rem);
+  width: auto;
+  height: auto;
+  max-width: min(90vw, 680px);
+  max-height: calc(100dvh - 6.2rem);
   object-fit: contain;
-  object-position: center;
-  background: #efe6de;
-  border-radius: 0.6rem;
+  border-radius: 0.55rem;
   touch-action: pinch-zoom;
 }
-#lightbox p { margin: 0.6rem 0.2rem 0.2rem; }
+#lightbox p { margin: 0.45rem 0.15rem 0.1rem; }
 .close {
   position: absolute;
-  right: 1.15rem;
-  top: 1rem;
+  right: 0.7rem;
+  top: 0.55rem;
   border: none;
   background: transparent;
   font-size: 1.8rem;
