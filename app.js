@@ -132,7 +132,7 @@ const models = [
     { name: "Negro", hex: "#1c1c1c", image: "images/botas-p19-0.jpg" }
   ]},
   { id: "paulina", name: "Paulina", price: 850, sizes: "3 al 6 MX · Tacón 6", colors: [
-    { name: "Paulina", hex: "#b0b0a8", image: "images/botas-p20-0.jpg" }
+    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p20-0.jpg" }
   ]},
   { id: "texana", name: "Texana", price: 950, sizes: "3 al 6 MX · Tacón 6", colors: [
     { name: "Moka", hex: "#6b5348", image: "images/botas-p21-0.jpg" },
