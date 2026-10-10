@@ -259,6 +259,13 @@ function money(n) {
   return `$${n}`;
 }
 
+function priceHtml(model, size) {
+  if (model.id === "romeo" && size === "6") {
+    return `<span class="was">${money(model.price)}</span><span class="now">${money(700)}</span>`;
+  }
+  return money(model.price);
+}
+
 function sizeButtons(model) {
   if (model.category === "flats" && model.sizes.includes("2 al 7")) return ["2", "3", "4", "5", "6", "7"];
   if (model.category === "flats" && model.sizes.includes("3 al 7")) return ["3", "4", "5", "6", "7"];
@@ -357,6 +364,7 @@ grid.addEventListener("click", (e) => {
     cardEl.querySelectorAll(".sizes button").forEach((b) => b.classList.remove("active"));
     sizeBtn.classList.add("active");
     cardEl.querySelector(".size-hint").hidden = true;
+    cardEl.querySelector(".price").innerHTML = priceHtml(model, sizeBtn.dataset.size);
     syncOrder(cardEl, model);
   }
 
