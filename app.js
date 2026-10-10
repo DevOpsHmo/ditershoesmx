@@ -81,23 +81,31 @@ const models = [
     { name: "Negro", hex: "#222", image: "images/botas-p4-2.jpg" }
   ]},
   { id: "romelia", name: "Romelia", price: 750, sizes: "3 al 6 MX · Tacón 6", colors: [
-    { name: "Romelia", hex: "#cfc8be", image: "images/botas-p5-0.jpg" }
+    { name: "Moka", hex: "#6b4636", image: "images/botas-p5-0.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p5-1.jpg" }
   ]},
   { id: "romeo", name: "Romeo", price: 790, sizes: "3 al 6 MX · Tacón 6", colors: [
-    { name: "Romeo", hex: "#f4f1ea", image: "images/botas-p6-0.jpg" }
+    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p6-0.jpg" },
+    { name: "Moka", hex: "#6b4636", image: "images/botas-p6-1.jpg" }
   ]},
   { id: "victoria", name: "Botín Victoria", price: 790, sizes: "3 al 6 MX · Tacón 7", colors: [
     { name: "Negro", hex: "#1c1c1c", image: "images/botas-p7-0.jpg" },
     { name: "Moka", hex: "#4a3028", image: "images/botas-p7-1.jpg" }
   ]},
   { id: "arkansas", name: "Arkansas", price: 950, sizes: "3 al 6 MX · Tacón 6", colors: [
-    { name: "Arkansas", hex: "#8a8680", image: "images/botas-p8-0.jpg" }
+    { name: "Arena", hex: "#d8d0c4", image: "images/botas-p8-0.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p8-1.jpg" }
   ]},
   { id: "texas", name: "Texas", price: 890, sizes: "3 al 6 MX · Tacón 8", colors: [
-    { name: "Arena, camel, chocolate y negro", hex: "#c4b59a", image: "images/botas-p9-0.jpg" }
+    { name: "Chocolate", hex: "#5c4638", image: "images/botas-p9-0.jpg" },
+    { name: "Arena", hex: "#d8d0c4", image: "images/botas-p9-1.jpg" },
+    { name: "Camel", hex: "#c4a06a", image: "images/botas-p9-2.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p9-3.jpg" }
   ]},
   { id: "montana", name: "Montana", price: 850, sizes: "3 al 6 MX · Tacón 6", colors: [
-    { name: "Montana", hex: "#d0ccc6", image: "images/botas-p10-0.jpg" }
+    { name: "Plata", hex: "#c5c8cc", image: "images/botas-p10-0.jpg" },
+    { name: "Late", hex: "#f2f0ec", image: "images/botas-p10-1.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p10-2.jpg" }
   ]},
   { id: "harley", name: "Harley", price: 825, sizes: "3 al 6 MX · Tacón 6", colors: [
     { name: "Negro", hex: "#1c1c1c", image: "images/botas-p11-0.jpg" },
@@ -180,7 +188,9 @@ const models = [
     { name: "Negro", hex: "#2a2a2a", image: "images/flats-p9-1.jpg" }
   ]},
   { id: "lulu", name: "Lulu", price: 490, sizes: "3 al 6 MX", colors: [
-    { name: "Blanco, vino y negro", hex: "#6b2430", image: "images/flats-p10-0.jpg" }
+    { name: "Blanco", hex: "#f7f7f7", image: "images/flats-p10-0.jpg" },
+    { name: "Vino", hex: "#6b2430", image: "images/flats-p10-0.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/flats-p10-0.jpg" }
   ]},
   { id: "malibu", name: "Malibu", price: 490, sizes: "3 al 6 MX", colors: [
     { name: "Leopardo", hex: "#8a6238", image: "images/flats-p10-1.jpg" }
