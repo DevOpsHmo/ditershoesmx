@@ -87,7 +87,8 @@ const models = [
     { name: "Romeo", hex: "#f4f1ea", image: "images/botas-p6-0.jpg" }
   ]},
   { id: "victoria", name: "Botín Victoria", price: 790, sizes: "3 al 6 MX · Tacón 7", colors: [
-    { name: "Victoria", hex: "#7c6557", image: "images/botas-p7-0.jpg" }
+    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p7-0.jpg" },
+    { name: "Moka", hex: "#4a3028", image: "images/botas-p7-1.jpg" }
   ]},
   { id: "arkansas", name: "Arkansas", price: 950, sizes: "3 al 6 MX · Tacón 6", colors: [
     { name: "Arkansas", hex: "#8a8680", image: "images/botas-p8-0.jpg" }
@@ -99,10 +100,12 @@ const models = [
     { name: "Montana", hex: "#d0ccc6", image: "images/botas-p10-0.jpg" }
   ]},
   { id: "harley", name: "Harley", price: 825, sizes: "3 al 6 MX · Tacón 6", colors: [
-    { name: "Harley", hex: "#c49ab4", image: "images/botas-p11-0.jpg" }
+    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p11-0.jpg" },
+    { name: "Testa", hex: "#5c4038", image: "images/botas-p11-1.jpg" },
+    { name: "Rioja", hex: "#7a3050", image: "images/botas-p11-2.jpg" }
   ]},
   { id: "gales", name: "Gales", price: 870, sizes: "3 al 6 MX · Tacón 8", colors: [
-    { name: "Gales", hex: "#3a3836", image: "images/botas-p12-0.jpg" }
+    { name: "Moka", hex: "#4a3028", image: "images/botas-p12-0.jpg" }
   ]},
   { id: "durango", name: "Durango", price: 950, sizes: "3 al 6 MX · Tacón 6", colors: [
     { name: "Durango", hex: "#9a9078", image: "images/botas-p13-0.jpg" }
@@ -120,13 +123,13 @@ const models = [
     { name: "Moka", hex: "#3a2418", image: "images/botas-p16-1.jpg" }
   ]},
   { id: "eugenia", name: "Eugenia", price: 950, sizes: "3 al 6 MX · Tacón 6", colors: [
-    { name: "Eugenia", hex: "#b7b2a4", image: "images/botas-p17-0.jpg" }
+    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p17-0.jpg" }
   ]},
   { id: "arizona", name: "Arizona", price: 850, sizes: "3 al 6 MX · Tacón 6", colors: [
-    { name: "Arizona", hex: "#3c3c3e", image: "images/botas-p18-0.jpg" }
+    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p18-0.jpg" }
   ]},
   { id: "espana", name: "España", price: 850, sizes: "3 al 6 MX · Tacón 6", colors: [
-    { name: "España", hex: "#2a2a2a", image: "images/botas-p19-0.jpg" }
+    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p19-0.jpg" }
   ]},
   { id: "paulina", name: "Paulina", price: 850, sizes: "3 al 6 MX · Tacón 6", colors: [
     { name: "Paulina", hex: "#b0b0a8", image: "images/botas-p20-0.jpg" }
@@ -137,7 +140,7 @@ const models = [
   ]},
   { id: "manhatan", name: "Manhatan", price: 890, sizes: "3 al 6 MX · Tacón 6", colors: [
     { name: "Negro", hex: "#222", image: "images/botas-p22-0.jpg" },
-    { name: "Café", hex: "#6b3a28", image: "images/botas-p22-1.jpg" }
+    { name: "Marrón", hex: "#8a5a32", image: "images/botas-p22-1.jpg" }
   ]},
   { id: "claudia", name: "Claudia", price: 495, sizes: "3 al 6 MX", colors: [
     { name: "Vino", hex: "#6b2430", image: "images/flats-p2-1.jpg" },
