@@ -186,9 +186,9 @@ const models = [
     { name: "Leopardo", hex: "#8a6238", image: "images/flats-p10-1.jpg" }
   ]},
   { id: "venezuela", name: "Venezuela", price: 490, sizes: "3 al 6 MX", colors: [
-    { name: "Late", hex: "#e4d2c8", image: "images/flats-p11-0.jpg" },
-    { name: "Negro", hex: "#111", image: "images/flats-p11-1.jpg" },
-    { name: "Café", hex: "#4a3028", image: "images/flats-p11-2.jpg" }
+    { name: "Charol Negro", hex: "#111", image: "images/flats-p11-1.jpg" },
+    { name: "Charol Café", hex: "#4a3028", image: "images/flats-p11-2.jpg" },
+    { name: "Charol Maquillaje", hex: "#e4d2c8", image: "images/flats-p11-0.jpg" }
   ]},
   { id: "alemania", name: "Alemania", price: 485, sizes: "3 al 7 MX", colors: [
     { name: "Plata", hex: "#c5c8cc", image: "images/flats-p12-0.jpg" },
@@ -210,13 +210,20 @@ const models = [
   { id: "osiris", name: "Osiris", price: 485, sizes: "3 al 6 MX", colors: [
     { name: "Miga", hex: "#f3eee6", image: "images/flats-p15-0.jpg" },
     { name: "Vino", hex: "#6b2430", image: "images/flats-p15-1.jpg" },
-    { name: "Negro", hex: "#111", image: "images/flats-p15-2.jpg" }
+    { name: "Charol Negro", hex: "#111", image: "images/flats-p15-2.jpg" }
   ]},
   { id: "argentina", name: "Argentina", price: 485, sizes: "3 al 6 MX", colors: [
     { name: "Miga", hex: "#e6dfd4", image: "images/flats-p16-2.jpg" },
     { name: "Vino", hex: "#6b2430", image: "images/flats-p16-0.jpg" },
     { name: "Café", hex: "#c4956a", image: "images/flats-p16-1.jpg" },
     { name: "Negro", hex: "#1a1a1a", image: "images/flats-p16-3.jpg" }
+  ]},
+  { id: "japon", name: "Japón", price: 485, sizes: "3 al 6 MX", colors: [
+    { name: "Negro", hex: "#1c1c1c", image: "images/flats-p17-0.jpg" },
+    { name: "Café", hex: "#6b4632", image: "images/flats-p17-1.jpg" }
+  ]},
+  { id: "leilany", name: "Leilany", price: 485, sizes: "2 al 7 MX", colors: [
+    { name: "Café", hex: "#6b4632", image: "images/flats-p18-0.jpg" }
   ]}
 ];
 
@@ -253,6 +260,7 @@ function money(n) {
 }
 
 function sizeButtons(model) {
+  if (model.category === "flats" && model.sizes.includes("2 al 7")) return ["2", "3", "4", "5", "6", "7"];
   if (model.category === "flats" && model.sizes.includes("3 al 7")) return ["3", "4", "5", "6", "7"];
   return ["3", "4", "5", "6"];
 }
