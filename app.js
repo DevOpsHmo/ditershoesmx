@@ -390,7 +390,7 @@ function card(model, index) {
   const eager = index < 2;
   return `
     <article class="card" data-model="${model.id}">
-      <img src="${imgSrc(color.image)}" alt="${model.name} ${color.name}" width="800" height="1000" ${eager ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"'} />
+      <img src="${imgSrc(color.image)}" alt="${model.name} ${color.name}" width="800" height="1000" style="aspect-ratio:4/5" ${eager ? 'fetchpriority="high"' : ''} decoding="async" />
       <div class="card-body">
         <p class="model">${model.name}</p>
         <h3 class="color-name">${color.name}</h3>
