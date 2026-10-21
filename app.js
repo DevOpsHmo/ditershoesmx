@@ -234,6 +234,100 @@ const models = [
   ]},
   { id: "leilany", name: "Leilany", price: 485, sizes: "2 al 7 MX", colors: [
     { name: "Café", hex: "#6b4632", image: "images/flats-p18-0.jpg" }
+  ]},
+  { id: "gali", name: "Gali", price: 485, sizes: "2 al 7 MX · Tacón 10", colors: [
+    { name: "Rojo", hex: "#9b1c2c", image: "images/zapatillas-gali-0.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-gali-1.jpg" },
+    { name: "Avellana", hex: "#8a5a32", image: "images/zapatillas-gali-2.jpg" },
+    { name: "Maquillaje", hex: "#e6cbb8", image: "images/zapatillas-gali-3.jpg" },
+    { name: "Oro", hex: "#d4b483", image: "images/zapatillas-gali-4.jpg" }
+  ]},
+  { id: "coquette", name: "Coquette", price: 550, sizes: "2 al 7 MX · Tacón 8", colors: [
+    { name: "Amarillo", hex: "#e8d56a", image: "images/zapatillas-coquette-0.jpg" },
+    { name: "Rosa", hex: "#e8a8c0", image: "images/zapatillas-coquette-1.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-coquette-3.jpg" }
+  ]},
+  { id: "italia", name: "Italia", price: 550, sizes: "2 al 7 MX · Tacón 10", colors: [
+    { name: "Negro", hex: "#111", image: "images/zapatillas-italia-0.jpg" },
+    { name: "Rojo", hex: "#8b1e2d", image: "images/zapatillas-italia-1.jpg" },
+    { name: "Maquillaje", hex: "#d4b8a8", image: "images/zapatillas-italia-2.jpg" }
+  ]},
+  { id: "karime", name: "Karime", price: 495, sizes: "2 al 7 MX · Tacón 6", colors: [
+    { name: "Blanco", hex: "#f4f0e8", image: "images/zapatillas-karime-0.jpg" },
+    { name: "Maquillaje", hex: "#c4a890", image: "images/zapatillas-karime-1.jpg" }
+  ]},
+  { id: "alejandra", name: "Alejandra", price: 525, sizes: "3 al 6 MX · Tacón 10 · Plataforma 2", colors: [
+    { name: "Charol Negro", hex: "#111", image: "images/zapatillas-alejandra-0.jpg" },
+    { name: "Oro", hex: "#d4b483", image: "images/zapatillas-alejandra-1.jpg" },
+    { name: "Avellana", hex: "#c4a06a", image: "images/zapatillas-alejandra-2.jpg" },
+    { name: "Charol Maquillaje", hex: "#e4d2c8", image: "images/zapatillas-alejandra-3.jpg" }
+  ]},
+  { id: "princesa", name: "Princesa", price: 525, sizes: "3 al 6 MX · Tacón 10", colors: [
+    { name: "Nude", hex: "#e6cbb8", image: "images/zapatillas-princesa-0.jpg" },
+    { name: "Plata", hex: "#c5c8cc", image: "images/zapatillas-princesa-1.jpg" }
+  ]},
+  { id: "keila", name: "Keila", price: 500, sizes: "3 al 7 MX · Tacón 8", colors: [
+    { name: "Ice", hex: "#e6dfd4", image: "images/zapatillas-keila-0.jpg" },
+    { name: "Amarillo", hex: "#e8d56a", image: "images/zapatillas-keila-1.jpg" },
+    { name: "Avellana", hex: "#c4a06a", image: "images/zapatillas-keila-2.jpg" }
+  ]},
+  { id: "odalya", name: "Odalya", price: 500, sizes: "3 al 6 MX · Tacón 3", colors: [
+    { name: "Avena", hex: "#c4b59a", image: "images/zapatillas-odalya-0.jpg" },
+    { name: "Polka Negro", hex: "#3a3028", image: "images/zapatillas-odalya-1.jpg" },
+    { name: "Polka Blanco", hex: "#f4f0e8", image: "images/zapatillas-odalya-2.jpg" }
+  ]},
+  { id: "zoe", name: "Zoe", price: 495, sizes: "2 al 7 MX · Tacón 6", colors: [
+    { name: "Miga", hex: "#f3eee6", image: "images/zapatillas-zoe-0.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-zoe-1.jpg" },
+    { name: "Rosa", hex: "#e8a8c0", image: "images/zapatillas-zoe-2.jpg" },
+    { name: "Testa", hex: "#5c4038", image: "images/zapatillas-zoe-3.jpg" }
+  ]},
+  { id: "carlota", name: "Carlota", price: 500, sizes: "3 al 6 MX · Tacón 9", colors: [
+    { name: "Maquillaje", hex: "#e6cbb8", image: "images/zapatillas-carlota-0.jpg" },
+    { name: "Ch. Miga", hex: "#f3eee6", image: "images/zapatillas-carlota-1.jpg" },
+    { name: "Carey", hex: "#6b4632", image: "images/zapatillas-carlota-2.jpg" },
+    { name: "Chocolate", hex: "#4a3028", image: "images/zapatillas-carlota-3.jpg" },
+    { name: "Vino", hex: "#6b2430", image: "images/zapatillas-carlota-4.jpg" }
+  ]},
+  { id: "monica", name: "Mónica", price: 500, sizes: "2 al 7 MX · Tacón 8", colors: [
+    { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-monica-0.jpg" },
+    { name: "Ch. Miga", hex: "#f3eee6", image: "images/zapatillas-monica-1.jpg" }
+  ]},
+  { id: "alexia", name: "Alexia", price: 495, sizes: "2 al 7 MX · Tacón 6", colors: [
+    { name: "Maquillaje", hex: "#e6cbb8", image: "images/zapatillas-alexia-0.jpg" },
+    { name: "Negro Mate", hex: "#1c1c1c", image: "images/zapatillas-alexia-1.jpg" },
+    { name: "Vino", hex: "#6b2430", image: "images/zapatillas-alexia-2.jpg" },
+    { name: "Ice", hex: "#e6dfd4", image: "images/zapatillas-alexia-3.jpg" },
+    { name: "Carey", hex: "#6b4632", image: "images/zapatillas-alexia-4.jpg" },
+    { name: "Ch. Negro", hex: "#111", image: "images/zapatillas-alexia-5.jpg" },
+    { name: "Polka Nutty", hex: "#d8c4b4", image: "images/zapatillas-alexia-6.jpg" }
+  ]},
+  { id: "gloria", name: "Gloria", price: 495, sizes: "3 al 6 MX · Tacón 6", colors: [
+    { name: "Camel", hex: "#8a5a32", image: "images/zapatillas-gloria-0.jpg" },
+    { name: "Ice", hex: "#e6dfd4", image: "images/zapatillas-gloria-1.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-gloria-2.jpg" }
+  ]},
+  { id: "majo", name: "Majo", price: 550, sizes: "2 al 6 MX · Tacón 13 · Plataforma 3", colors: [
+    { name: "Miga", hex: "#f3eee6", image: "images/zapatillas-majo-0.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-majo-1.jpg" }
+  ]},
+  { id: "karina", name: "Karina", price: 500, sizes: "3 al 6 MX · Tacón 8", colors: [
+    { name: "Negro", hex: "#111", image: "images/zapatillas-karina-0.jpg" },
+    { name: "Carey", hex: "#6b4632", image: "images/zapatillas-karina-1.jpg" },
+    { name: "Mica / Miga", hex: "#e6dfd4", image: "images/zapatillas-karina-2.jpg" }
+  ]},
+  { id: "amanda", name: "Amanda", price: 550, sizes: "3 al 6 MX · Tacón 10", colors: [
+    { name: "Oro", hex: "#d4b483", image: "images/zapatillas-amanda-0.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-amanda-1.jpg" }
+  ]},
+  { id: "karely", name: "Karely", price: 500, sizes: "3 al 6 MX · Tacón 6", colors: [
+    { name: "Oro", hex: "#d4b483", image: "images/zapatillas-karely-0.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-karely-1.jpg" }
+  ]},
+  { id: "carolina", name: "Carolina", price: 500, sizes: "2 al 7 MX · Tacón 6", colors: [
+    { name: "Negro", hex: "#111", image: "images/zapatillas-carolina-0.jpg" },
+    { name: "Miga", hex: "#f3eee6", image: "images/zapatillas-carolina-1.jpg" },
+    { name: "Vino", hex: "#6b2430", image: "images/zapatillas-carolina-2.jpg" }
   ]}
 ];
 
@@ -242,25 +336,12 @@ const grid = document.getElementById("grid");
 const dialog = document.getElementById("lightbox");
 const dialogImg = document.getElementById("lightbox-img");
 
-const viewport = document.querySelector('meta[name="viewport"]');
-const zoomOff = "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover";
-const zoomOn = "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=4, user-scalable=yes, viewport-fit=cover";
-
-function setPageZoom(allow) {
-  viewport.setAttribute("content", allow ? zoomOn : zoomOff);
-}
-
 function openPhoto() {
-  setPageZoom(true);
   dialog.showModal();
 }
 
-dialog.addEventListener("close", () => setPageZoom(false));
 dialog.addEventListener("click", (event) => {
   if (event.target === dialog) dialog.close();
-});
-document.addEventListener("gesturestart", (event) => {
-  if (!dialog.open) event.preventDefault();
 });
 
 let active = "todos";
@@ -270,8 +351,10 @@ function money(n) {
 }
 
 function sizeButtons(model) {
-  if (model.category === "flats" && model.sizes.includes("2 al 7")) return ["2", "3", "4", "5", "6", "7"];
-  if (model.category === "flats" && model.sizes.includes("3 al 7")) return ["3", "4", "5", "6", "7"];
+  const sizes = model.sizes;
+  if (sizes.includes("2 al 7")) return ["2", "3", "4", "5", "6", "7"];
+  if (sizes.includes("2 al 6")) return ["2", "3", "4", "5", "6"];
+  if (sizes.includes("3 al 7")) return ["3", "4", "5", "6", "7"];
   return ["3", "4", "5", "6"];
 }
 
@@ -280,32 +363,34 @@ function waLink(model, color, size) {
   return `https://wa.me/${WA}?text=${encodeURIComponent(text)}`;
 }
 
-const categoryNames = { tenis: "Tenis", botas: "Botas", flats: "Flats" };
+const categoryNames = { tenis: "Tenis", botas: "Botas", flats: "Flats", zapatillas: "Zapatillas" };
+const categoryOrder = ["tenis", "botas", "flats", "zapatillas"];
 
 for (const model of models) {
   const src = model.colors[0].image;
   if (src.includes("/botas-")) model.category = "botas";
   else if (src.includes("/flats-")) model.category = "flats";
+  else if (src.includes("/zapatillas-")) model.category = "zapatillas";
   else model.category = "tenis";
 }
 
 function renderFilters() {
-  const items = [{ id: "todos", name: "Todos" }];
-  for (const model of models) {
-    if (!items.some((item) => item.id === model.category)) {
-      items.push({ id: model.category, name: categoryNames[model.category] });
-    }
-  }
+  const items = [{ id: "todos", name: "Todos" }, ...categoryOrder.map((id) => ({ id, name: categoryNames[id] }))];
   filters.innerHTML = items.map((item) =>
     `<button type="button" data-id="${item.id}" class="${item.id === active ? "active" : ""}">${item.name}</button>`
   ).join("");
 }
 
-function card(model) {
+function imgSrc(path) {
+  return String(path).replace(/\.(jpe?g|png)$/i, ".webp");
+}
+
+function card(model, index) {
   const color = model.colors[0];
+  const eager = index < 2;
   return `
     <article class="card" data-model="${model.id}">
-      <img src="${color.image}" alt="${model.name} ${color.name}" />
+      <img src="${imgSrc(color.image)}" alt="${model.name} ${color.name}" width="800" height="1000" ${eager ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"'} />
       <div class="card-body">
         <p class="model">${model.name}</p>
         <h3 class="color-name">${color.name}</h3>
@@ -325,7 +410,9 @@ function card(model) {
 
 function render() {
   const list = active === "todos" ? models : models.filter((m) => m.category === active || m.id === active);
-  grid.innerHTML = list.map(card).join("");
+  grid.innerHTML = list.length
+    ? list.map((model, index) => card(model, index)).join("")
+    : `<p class="empty-cat">Pronto verás los modelos de ${categoryNames[active] || "esta categoría"}.</p>`;
 }
 
 filters.addEventListener("click", (e) => {
@@ -377,7 +464,7 @@ grid.addEventListener("click", (e) => {
 
   if (swatch) {
     const color = model.colors[Number(swatch.dataset.index)];
-    cardEl.querySelector("img").src = color.image;
+    cardEl.querySelector("img").src = imgSrc(color.image);
     cardEl.querySelector("img").alt = `${model.name} ${color.name}`;
     cardEl.querySelector(".color-name").textContent = color.name;
     cardEl.querySelectorAll(".swatches button").forEach((b) => b.classList.remove("active"));
@@ -387,7 +474,7 @@ grid.addEventListener("click", (e) => {
     if (worn) {
       if (color.worn) {
         worn.hidden = false;
-        worn.dataset.worn = color.worn;
+        worn.dataset.worn = imgSrc(color.worn);
       } else {
         worn.hidden = true;
       }

@@ -1,12 +1,35 @@
 :root {
   --cream: #f6f1ea;
-  --ink: #6d534c;
+  --ink: #5c4039;
   --ink-deep: #4a3732;
   --rose: #c9a399;
+  --rose-text: #6b433c;
   --pink: #f3c9cf;
   --sand: #d8c4b4;
   --line: rgba(109, 83, 76, 0.18);
   --card: #fffdfb;
+}
+
+@font-face {
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url("fonts/outfit.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url("fonts/cormorant-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/cormorant-500i.woff2") format("woff2");
 }
 
 * { box-sizing: border-box; }
@@ -72,7 +95,7 @@ body.home .hero { flex: 1; }
   line-height: 0.9;
   letter-spacing: 0.04em;
   margin: 0;
-  color: var(--rose);
+  color: var(--rose-text);
 }
 .hero h1 span { display: block; font-style: italic; }
 .home-brand { font-style: normal; font-weight: 700; letter-spacing: 0.04em; font-size: 1.15em; }
@@ -85,7 +108,7 @@ body.home .hero { flex: 1; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #b98980;
+  background: #6b433c;
   color: #fff;
   text-decoration: none;
   padding: 0.85rem 1.4rem;
@@ -121,7 +144,7 @@ h2 {
   font-weight: 500;
   font-size: 3rem;
   margin: 0;
-  color: var(--rose);
+  color: var(--rose-text);
 }
 .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .filters button {
@@ -132,6 +155,14 @@ h2 {
   border-radius: 999px;
   padding: 0.4rem 0.85rem;
   cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.empty-cat {
+  grid-column: 1 / -1;
+  margin: 1.5rem 0;
+  color: var(--muted, #7a6a64);
+  font-size: 1rem;
 }
 .filters button.active { background: var(--ink); color: #fff; border-color: var(--ink); }
 
@@ -151,13 +182,15 @@ h2 {
 }
 .card img {
   width: 100%;
+  height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
+  object-position: center;
   background: #efe6de;
   cursor: zoom-in;
 }
 .card-body { padding: 0.85rem 1rem 1rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
-.model { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose); margin: 0; }
+.model { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose-text); margin: 0; }
 .card h3 { margin: 0; font-weight: 500; font-size: 1.15rem; line-height: 1.25; min-height: 2.5em; }
 .meta { margin: 0; color: var(--ink); font-weight: 300; line-height: 1.3; min-height: 2.6em; }
 .price { font-weight: 600; margin: 0; }
@@ -191,7 +224,7 @@ h2 {
 .swatches button.active { box-shadow: 0 0 0 2px var(--ink); }
 .card .btn { margin-top: 0.4rem; }
 
-.order { text-align: center; background: #b98980; color: #fff; }
+.order { text-align: center; background: #6b433c; color: #fff; }
 .order h2, .order p { color: #fff; }
 .phones { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
 .order .btn { background: #fff; color: var(--ink-deep); }
@@ -290,6 +323,11 @@ footer a {
     z-index: 4;
     flex-wrap: nowrap;
     overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    touch-action: pan-x;
     gap: 0.4rem;
     margin: 0 -0.75rem;
     padding: 0.55rem 0.75rem;
@@ -297,6 +335,7 @@ footer a {
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
   }
+  .filters::-webkit-scrollbar { display: none; }
   .filters button { flex: 0 0 auto; }
   .grid {
     grid-template-columns: 1fr 1fr;
@@ -305,7 +344,7 @@ footer a {
   }
   .card { border-radius: 0.9rem; }
   .card-body { padding: 0.55rem 0.55rem 0.7rem; gap: 0.28rem; }
-  .model { font-size: 0.62rem; letter-spacing: 0.08em; }
+  .model { font-size: 0.72rem; letter-spacing: 0.08em; }
   .card h3 { font-size: 0.92rem; }
   .meta, .size-hint { font-size: 0.75rem; }
   .price { font-size: 0.9rem; }
