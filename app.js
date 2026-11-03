@@ -400,20 +400,20 @@ const models = [
     { name: "Maquillaje", hex: "#e6cbb8", image: "images/zapatillas-atziry-2.jpg" }
   ]},
   { id: "pantufla-004", name: "Pantufla 004", price: 500, sizes: "2 al 6 MX", colors: [
+    { name: "Beige", hex: "#d8c4a8", image: "images/pantuflas-004-2.jpg" },
     { name: "Camel", hex: "#c4843a", image: "images/pantuflas-004-0.jpg" },
-    { name: "Negro", hex: "#1c1c1c", image: "images/pantuflas-004-1.jpg" },
-    { name: "Beige", hex: "#d8c4a8", image: "images/pantuflas-004-2.jpg" }
+    { name: "Negro", hex: "#1c1c1c", image: "images/pantuflas-004-1.jpg" }
   ]},
   { id: "pantufla-001", name: "Pantufla 001", price: 500, sizes: "2 al 6 MX", colors: [
+    { name: "Rosa", hex: "#e8a8c0", image: "images/pantuflas-001-2.jpg" },
     { name: "Camel", hex: "#c4a06a", image: "images/pantuflas-001-0.jpg" },
     { name: "Blanco", hex: "#f7f7f7", image: "images/pantuflas-001-1.jpg" },
-    { name: "Rosa", hex: "#e8a8c0", image: "images/pantuflas-001-2.jpg" },
     { name: "Negro", hex: "#1c1c1c", image: "images/pantuflas-001-3.jpg" }
   ]},
   { id: "pantufla-005", name: "Pantufla 005", price: 600, sizes: "2 al 6 MX", colors: [
+    { name: "Chocolate", hex: "#4a3028", image: "images/pantuflas-005-2.jpg" },
     { name: "Camel", hex: "#c4843a", image: "images/pantuflas-005-0.jpg" },
-    { name: "Negro", hex: "#1c1c1c", image: "images/pantuflas-005-1.jpg" },
-    { name: "Chocolate", hex: "#4a3028", image: "images/pantuflas-005-2.jpg" }
+    { name: "Negro", hex: "#1c1c1c", image: "images/pantuflas-005-1.jpg" }
   ]},
   { id: "pantufla-006", name: "Pantufla 006", price: 600, sizes: "2 al 6 MX", colors: [
     { name: "Camel", hex: "#c4843a", image: "images/pantuflas-006-0.jpg" },
@@ -421,9 +421,9 @@ const models = [
     { name: "Beige", hex: "#d8c4a8", image: "images/pantuflas-006-2.jpg" }
   ]},
   { id: "pantufla-003", name: "Pantufla 003", price: 600, sizes: "2 al 6 MX", colors: [
+    { name: "Camel", hex: "#c4a06a", image: "images/pantuflas-003-2.jpg" },
     { name: "Chocolate", hex: "#5c4030", image: "images/pantuflas-003-0.jpg" },
-    { name: "Negro", hex: "#1c1c1c", image: "images/pantuflas-003-1.jpg" },
-    { name: "Camel", hex: "#c4a06a", image: "images/pantuflas-003-2.jpg" }
+    { name: "Negro", hex: "#1c1c1c", image: "images/pantuflas-003-1.jpg" }
   ]}
 ];
 
