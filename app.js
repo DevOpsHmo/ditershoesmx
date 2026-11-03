@@ -443,6 +443,8 @@ dialog.addEventListener("click", (event) => {
 
 let active = "todos";
 let page = 1;
+let pageWindow = 1;
+const mobilePageButtons = 3;
 
 function pageSize() {
   return window.matchMedia("(max-width: 720px)").matches ? 6 : 15;
@@ -517,18 +519,12 @@ function currentList() {
 
 function pageButtons(pages) {
   const desktop = pageSize() > 6;
-  const shown = desktop
-    ? new Set(Array.from({ length: pages }, (_, i) => i + 1))
-    : new Set([page - 1, page, page + 1].filter((n) => n >= 1 && n <= pages));
-  const nums = [...shown].sort((a, b) => a - b);
-  const parts = [];
-  let prev = 0;
-  for (const n of nums) {
-    if (desktop && prev && n - prev > 1) parts.push(`<span class="pager-gap" aria-hidden="true">…</span>`);
-    parts.push(`<button type="button" data-page="${n}" ${n === page ? 'aria-current="page"' : ""}>${n}</button>`);
-    prev = n;
-  }
-  return parts.join("");
+  const nums = desktop
+    ? Array.from({ length: pages }, (_, i) => i + 1)
+    : Array.from({ length: Math.min(mobilePageButtons, pages) }, (_, i) => pageWindow + i);
+  return nums.map((n) =>
+    `<button type="button" data-page="${n}" ${n === page ? 'aria-current="page"' : ""}>${n}</button>`
+  ).join("");
 }
 
 function renderPager(pages) {
@@ -539,13 +535,22 @@ function renderPager(pages) {
     return;
   }
   const desktop = pageSize() > 6;
+  const maxWindow = Math.max(1, pages - mobilePageButtons + 1);
+  if (pageWindow > maxWindow) pageWindow = maxWindow;
+  if (pageWindow < 1) pageWindow = 1;
   const prevLabel = desktop ? "Anterior" : "‹";
   const nextLabel = desktop ? "Siguiente" : "›";
+  const prevAttrs = desktop
+    ? `data-page="${page - 1}" aria-label="Página anterior" ${page === 1 ? "disabled" : ""}`
+    : `data-shift="-1" aria-label="Ver páginas anteriores" ${pageWindow <= 1 ? "disabled" : ""}`;
+  const nextAttrs = desktop
+    ? `data-page="${page + 1}" aria-label="Página siguiente" ${page === pages ? "disabled" : ""}`
+    : `data-shift="1" aria-label="Ver páginas siguientes" ${pageWindow >= maxWindow ? "disabled" : ""}`;
   pager.hidden = false;
   pager.innerHTML = `
-    <button type="button" class="pager-step" data-page="${page - 1}" aria-label="Página anterior" ${page === 1 ? "disabled" : ""}>${prevLabel}</button>
+    <button type="button" class="pager-step" ${prevAttrs}>${prevLabel}</button>
     ${pageButtons(pages)}
-    <button type="button" class="pager-step" data-page="${page + 1}" aria-label="Página siguiente" ${page === pages ? "disabled" : ""}>${nextLabel}</button>`;
+    <button type="button" class="pager-step" ${nextAttrs}>${nextLabel}</button>`;
 }
 
 function render() {
@@ -566,6 +571,7 @@ filters.addEventListener("click", (e) => {
   if (!btn) return;
   active = btn.dataset.id;
   page = 1;
+  pageWindow = 1;
   renderFilters();
   render();
 });
@@ -573,6 +579,11 @@ filters.addEventListener("click", (e) => {
 pager.addEventListener("click", (e) => {
   const btn = e.target.closest("button");
   if (!btn || btn.disabled) return;
+  if (btn.dataset.shift) {
+    pageWindow += Number(btn.dataset.shift);
+    render();
+    return;
+  }
   page = Number(btn.dataset.page);
   render();
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -583,6 +594,7 @@ window.addEventListener("resize", () => {
   const next = pageSize();
   if (next === sized) return;
   sized = next;
+  if (next === 6) pageWindow = Math.max(1, page - 1);
   render();
 });
 
