@@ -137,7 +137,7 @@ body.home .hero { flex: 1; }
   }
   .catalog h2 { margin-bottom: 0; }
   .filters { justify-content: flex-end; }
-  .grid { grid-column: 1 / -1; }
+  .grid, .pager { grid-column: 1 / -1; }
 }
 h2 {
   font-family: "Cormorant Garamond", serif;
@@ -172,7 +172,8 @@ h2 {
   justify-content: center;
   align-items: center;
   gap: 0.4rem;
-  margin: 1.5rem 0 0.5rem;
+  width: 100%;
+  margin: 1.5rem auto 0.5rem;
 }
 .pager button {
   font: inherit;

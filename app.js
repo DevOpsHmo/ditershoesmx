@@ -516,7 +516,10 @@ function currentList() {
 }
 
 function pageButtons(pages) {
-  const shown = new Set([1, pages, page - 1, page, page + 1].filter((n) => n >= 1 && n <= pages));
+  const desktop = pageSize() > 6;
+  const shown = desktop
+    ? new Set(Array.from({ length: pages }, (_, i) => i + 1))
+    : new Set([1, pages, page - 1, page, page + 1].filter((n) => n >= 1 && n <= pages));
   const nums = [...shown].sort((a, b) => a - b);
   const parts = [];
   let prev = 0;
@@ -569,7 +572,7 @@ pager.addEventListener("click", (e) => {
   if (!btn || btn.disabled) return;
   page = Number(btn.dataset.page);
   render();
-  document.querySelector(".catalog")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 let sized = pageSize();
