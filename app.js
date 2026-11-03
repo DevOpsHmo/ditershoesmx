@@ -7,8 +7,8 @@ const models = [
     price: 500,
     sizes: "3 al 6 MX",
     colors: [
-      { name: "Late", hex: "#d8c3ae", image: "images/dupe-samba-late.jpg" },
       { name: "Café", hex: "#6b4636", image: "images/dupe-samba-cafe.jpg" },
+      { name: "Late", hex: "#d8c3ae", image: "images/dupe-samba-late.jpg" },
       { name: "Negro", hex: "#2b2b2b", image: "images/dupe-samba-negro.jpg" }
     ]
   },
@@ -18,10 +18,10 @@ const models = [
     price: 500,
     sizes: "3 al 6 MX",
     colors: [
+      { name: "Café / Rosa", hex: "#8a5a52", image: "images/samba-low-cafe-rosa.jpg", worn: "images/samba-low-cafe-rosa-puesta.jpg" },
       { name: "Blanco / Negro", hex: "#f4f4f4", image: "images/samba-low-blanco-negro.jpg", worn: "images/samba-low-blanco-negro-puesta.jpg" },
       { name: "Late / Café", hex: "#c4b29a", image: "images/samba-low-late-cafe.jpg", worn: "images/samba-low-late-cafe-puesta.jpg" },
-      { name: "Negro", hex: "#1c1c1c", image: "images/samba-low-negro.jpg" },
-      { name: "Café / Rosa", hex: "#8a5a52", image: "images/samba-low-cafe-rosa.jpg", worn: "images/samba-low-cafe-rosa-puesta.jpg" }
+      { name: "Negro", hex: "#1c1c1c", image: "images/samba-low-negro.jpg" }
     ]
   },
   {
@@ -40,9 +40,9 @@ const models = [
     price: 600,
     sizes: "3 al 6 MX",
     colors: [
+      { name: "Negro", hex: "#222", image: "images/ofelia-negro.jpg" },
       { name: "Blanco", hex: "#f5f5f5", image: "images/ofelia-blanco.jpg" },
-      { name: "Late / Café", hex: "#c9b2a2", image: "images/ofelia-late-cafe.jpg" },
-      { name: "Negro", hex: "#222", image: "images/ofelia-negro.jpg" }
+      { name: "Late / Café", hex: "#c9b2a2", image: "images/ofelia-late-cafe.jpg" }
     ]
   },
   {
@@ -62,14 +62,14 @@ const models = [
     price: 600,
     sizes: "3 al 6 MX",
     colors: [
-      { name: "Beige", hex: "#e6d7c3", image: "images/nb-beige.jpg" },
       { name: "Plata", hex: "#c5c8cc", image: "images/nb-plata.jpg" },
+      { name: "Beige", hex: "#e6d7c3", image: "images/nb-beige.jpg" },
       { name: "Blanco", hex: "#f7f7f7", image: "images/nb-blanco.jpg" }
     ]
   },
   { id: "georgina", name: "Georgina", price: 960, sizes: "3 al 6 MX · Tacón 8", colors: [
-    { name: "Moka", hex: "#6b4636", image: "images/botas-p2-0.jpg" },
-    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p2-1.jpg" }
+    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p2-1.jpg" },
+    { name: "Moka", hex: "#6b4636", image: "images/botas-p2-0.jpg" }
   ]},
   { id: "dakota", name: "Dakota", price: 850, sizes: "3 al 6 MX · Tacón 8", colors: [
     { name: "Moka", hex: "#6b4636", image: "images/botas-p3-0.jpg" },
@@ -81,26 +81,26 @@ const models = [
     { name: "Negro", hex: "#222", image: "images/botas-p4-2.jpg" }
   ]},
   { id: "romelia", name: "Romelia", price: 750, sizes: "3 al 6 MX · Tacón 6", colors: [
-    { name: "Moka", hex: "#6b4636", image: "images/botas-p5-0.jpg" },
-    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p5-1.jpg" }
+    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p5-1.jpg" },
+    { name: "Moka", hex: "#6b4636", image: "images/botas-p5-0.jpg" }
   ]},
   { id: "romeo", name: "Romeo", price: 790, sizes: "3 al 6 MX · Tacón 6", colors: [
     { name: "Moka", hex: "#6b4636", image: "images/botas-p6-1.jpg" },
     { name: "Negro", hex: "#1c1c1c", image: "images/botas-p6-0.jpg" }
   ]},
   { id: "victoria", name: "Botín Victoria", price: 790, sizes: "3 al 6 MX · Tacón 7", colors: [
-    { name: "Moka", hex: "#4a3028", image: "images/botas-p7-1.jpg" },
-    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p7-0.jpg" }
+    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p7-0.jpg" },
+    { name: "Moka", hex: "#4a3028", image: "images/botas-p7-1.jpg" }
   ]},
   { id: "arkansas", name: "Arkansas", price: 950, sizes: "3 al 6 MX · Tacón 6", colors: [
     { name: "Arena", hex: "#d8d0c4", image: "images/botas-p8-0.jpg" },
     { name: "Negro", hex: "#1c1c1c", image: "images/botas-p8-1.jpg" }
   ]},
   { id: "texas", name: "Texas", price: 890, sizes: "3 al 6 MX · Tacón 8", colors: [
+    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p9-3.jpg" },
     { name: "Arena", hex: "#d8d0c4", image: "images/botas-p9-1.jpg" },
     { name: "Chocolate", hex: "#5c4638", image: "images/botas-p9-0.jpg" },
-    { name: "Camel", hex: "#c4a06a", image: "images/botas-p9-2.jpg" },
-    { name: "Negro", hex: "#1c1c1c", image: "images/botas-p9-3.jpg" }
+    { name: "Camel", hex: "#c4a06a", image: "images/botas-p9-2.jpg" }
   ]},
   { id: "montana", name: "Montana", price: 850, sizes: "3 al 6 MX · Tacón 6", colors: [
     { name: "Plata", hex: "#c5c8cc", image: "images/botas-p10-0.jpg" },
@@ -127,8 +127,8 @@ const models = [
     { name: "Negro", hex: "#1c1c1c", image: "images/botas-p15-0.jpg" }
   ]},
   { id: "alabama", name: "Alabama", price: 950, sizes: "3 al 6 MX · Tacón 6", colors: [
-    { name: "Moka", hex: "#3a2418", image: "images/botas-p16-1.jpg" },
-    { name: "Negro", hex: "#222", image: "images/botas-p16-0.jpg" }
+    { name: "Negro", hex: "#222", image: "images/botas-p16-0.jpg" },
+    { name: "Moka", hex: "#3a2418", image: "images/botas-p16-1.jpg" }
   ]},
   { id: "eugenia", name: "Eugenia", price: 950, sizes: "3 al 6 MX · Tacón 6", colors: [
     { name: "Negro", hex: "#1c1c1c", image: "images/botas-p17-0.jpg" }
@@ -143,8 +143,8 @@ const models = [
     { name: "Negro", hex: "#1c1c1c", image: "images/botas-p20-0.jpg" }
   ]},
   { id: "texana", name: "Texana", price: 950, sizes: "3 al 6 MX · Tacón 6", colors: [
-    { name: "Moka", hex: "#6b5348", image: "images/botas-p21-0.jpg" },
-    { name: "Negro", hex: "#2b2b2b", image: "images/botas-p21-1.jpg" }
+    { name: "Negro", hex: "#2b2b2b", image: "images/botas-p21-1.jpg" },
+    { name: "Moka", hex: "#6b5348", image: "images/botas-p21-0.jpg" }
   ]},
   { id: "manhatan", name: "Manhatan", price: 890, sizes: "3 al 6 MX · Tacón 6", colors: [
     { name: "Marrón", hex: "#8a5a32", image: "images/botas-p22-1.jpg" },
@@ -290,8 +290,8 @@ const models = [
     { name: "Chocolate", hex: "#4a3028", image: "images/zapatillas-carlota-3.jpg" }
   ]},
   { id: "monica", name: "Mónica", price: 500, sizes: "2 al 7 MX · Tacón 8", colors: [
-    { name: "Ch. Miga", hex: "#f3eee6", image: "images/zapatillas-monica-1.jpg" },
-    { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-monica-0.jpg" }
+    { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-monica-0.jpg" },
+    { name: "Ch. Miga", hex: "#f3eee6", image: "images/zapatillas-monica-1.jpg" }
   ]},
   { id: "alexia", name: "Alexia", price: 495, sizes: "2 al 7 MX · Tacón 6", colors: [
     { name: "Vino", hex: "#6b2430", image: "images/zapatillas-alexia-2.jpg" },
@@ -303,18 +303,18 @@ const models = [
     { name: "Polka Nutty", hex: "#d8c4b4", image: "images/zapatillas-alexia-6.jpg" }
   ]},
   { id: "gloria", name: "Gloria", price: 495, sizes: "3 al 6 MX · Tacón 6", colors: [
-    { name: "Ice", hex: "#e6dfd4", image: "images/zapatillas-gloria-1.jpg" },
     { name: "Camel", hex: "#8a5a32", image: "images/zapatillas-gloria-0.jpg" },
+    { name: "Ice", hex: "#e6dfd4", image: "images/zapatillas-gloria-1.jpg" },
     { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-gloria-2.jpg" }
   ]},
   { id: "majo", name: "Majo", price: 550, sizes: "2 al 6 MX · Tacón 13 · Plataforma 3", colors: [
-    { name: "Miga", hex: "#f3eee6", image: "images/zapatillas-majo-0.jpg" },
-    { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-majo-1.jpg" }
+    { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-majo-1.jpg" },
+    { name: "Miga", hex: "#f3eee6", image: "images/zapatillas-majo-0.jpg" }
   ]},
   { id: "karina", name: "Karina", price: 500, sizes: "3 al 6 MX · Tacón 8", colors: [
+    { name: "Carey", hex: "#6b4632", image: "images/zapatillas-karina-1.jpg" },
     { name: "Mica / Miga", hex: "#e6dfd4", image: "images/zapatillas-karina-2.jpg" },
-    { name: "Negro", hex: "#111", image: "images/zapatillas-karina-0.jpg" },
-    { name: "Carey", hex: "#6b4632", image: "images/zapatillas-karina-1.jpg" }
+    { name: "Negro", hex: "#111", image: "images/zapatillas-karina-0.jpg" }
   ]},
   { id: "amanda", name: "Amanda", price: 550, sizes: "3 al 6 MX · Tacón 10", colors: [
     { name: "Oro", hex: "#d4b483", image: "images/zapatillas-amanda-0.jpg" },
@@ -384,20 +384,20 @@ const models = [
     { name: "Negro", hex: "#111", image: "images/zapatillas-julieta-0.jpg" }
   ]},
   { id: "madeline", name: "Madeline", price: 590, sizes: "3 al 6 MX · Tacón 8", colors: [
+    { name: "Marrón", hex: "#6b4632", image: "images/zapatillas-madeline-2.jpg" },
     { name: "Blanco", hex: "#f4f0e8", image: "images/zapatillas-madeline-0.jpg" },
     { name: "Beige", hex: "#e6d3bc", image: "images/zapatillas-madeline-1.jpg" },
-    { name: "Marrón", hex: "#6b4632", image: "images/zapatillas-madeline-2.jpg" },
     { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-madeline-3.jpg" }
   ]},
   { id: "teressa", name: "Teressa", price: 590, sizes: "3 al 6 MX · Tacón 8", colors: [
-    { name: "Beige", hex: "#e6d3bc", image: "images/zapatillas-teressa-0.jpg" },
     { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-teressa-1.jpg" },
+    { name: "Beige", hex: "#e6d3bc", image: "images/zapatillas-teressa-0.jpg" },
     { name: "Marrón", hex: "#6b4632", image: "images/zapatillas-teressa-2.jpg" }
   ]},
   { id: "atziry", name: "Atziry", price: 590, sizes: "3 al 6 MX · Tacón 8", colors: [
+    { name: "Vino", hex: "#6b2430", image: "images/zapatillas-atziry-1.jpg" },
     { name: "Maquillaje", hex: "#e6cbb8", image: "images/zapatillas-atziry-2.jpg" },
-    { name: "Negro", hex: "#111", image: "images/zapatillas-atziry-0.jpg" },
-    { name: "Vino", hex: "#6b2430", image: "images/zapatillas-atziry-1.jpg" }
+    { name: "Negro", hex: "#111", image: "images/zapatillas-atziry-0.jpg" }
   ]},
   { id: "pantufla-004", name: "Pantufla 004", price: 500, sizes: "2 al 6 MX", colors: [
     { name: "Beige", hex: "#d8c4a8", image: "images/pantuflas-004-2.jpg" },
