@@ -166,6 +166,33 @@ h2 {
 }
 .filters button.active { background: var(--ink); color: #fff; border-color: var(--ink); }
 
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 1.5rem 0 0.5rem;
+}
+.pager button {
+  font: inherit;
+  min-width: 2.4rem;
+  height: 2.4rem;
+  padding: 0 0.7rem;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.pager button[aria-current="page"] {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+.pager button:disabled { opacity: 0.4; cursor: default; }
+.pager .pager-gap { color: var(--muted, #7a6a64); padding: 0 0.15rem; }
+
 .grid {
   margin-top: 1.5rem;
   display: grid;

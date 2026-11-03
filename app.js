@@ -429,6 +429,7 @@ const models = [
 
 const filters = document.getElementById("filters");
 const grid = document.getElementById("grid");
+const pager = document.getElementById("pager");
 const dialog = document.getElementById("lightbox");
 const dialogImg = document.getElementById("lightbox-img");
 
@@ -441,6 +442,11 @@ dialog.addEventListener("click", (event) => {
 });
 
 let active = "todos";
+let page = 1;
+
+function pageSize() {
+  return window.matchMedia("(max-width: 720px)").matches ? 6 : 15;
+}
 
 function money(n) {
   return `$${n}`;
@@ -505,18 +511,72 @@ function card(model, index) {
     </article>`;
 }
 
+function currentList() {
+  return active === "todos" ? models : models.filter((m) => m.category === active || m.id === active);
+}
+
+function pageButtons(pages) {
+  const shown = new Set([1, pages, page - 1, page, page + 1].filter((n) => n >= 1 && n <= pages));
+  const nums = [...shown].sort((a, b) => a - b);
+  const parts = [];
+  let prev = 0;
+  for (const n of nums) {
+    if (prev && n - prev > 1) parts.push(`<span class="pager-gap" aria-hidden="true">…</span>`);
+    parts.push(`<button type="button" data-page="${n}" ${n === page ? 'aria-current="page"' : ""}>${n}</button>`);
+    prev = n;
+  }
+  return parts.join("");
+}
+
+function renderPager(pages) {
+  if (!pager) return;
+  if (pages <= 1) {
+    pager.hidden = true;
+    pager.innerHTML = "";
+    return;
+  }
+  pager.hidden = false;
+  pager.innerHTML = `
+    <button type="button" data-page="${page - 1}" ${page === 1 ? "disabled" : ""}>Anterior</button>
+    ${pageButtons(pages)}
+    <button type="button" data-page="${page + 1}" ${page === pages ? "disabled" : ""}>Siguiente</button>`;
+}
+
 function render() {
-  const list = active === "todos" ? models : models.filter((m) => m.category === active || m.id === active);
-  grid.innerHTML = list.length
-    ? list.map((model, index) => card(model, index)).join("")
+  const list = currentList();
+  const size = pageSize();
+  const pages = Math.max(1, Math.ceil(list.length / size));
+  if (page > pages) page = pages;
+  if (page < 1) page = 1;
+  const slice = list.slice((page - 1) * size, page * size);
+  grid.innerHTML = slice.length
+    ? slice.map((model, index) => card(model, index)).join("")
     : `<p class="empty-cat">Pronto verás los modelos de ${categoryNames[active] || "esta categoría"}.</p>`;
+  renderPager(pages);
 }
 
 filters.addEventListener("click", (e) => {
   const btn = e.target.closest("button");
   if (!btn) return;
   active = btn.dataset.id;
+  page = 1;
   renderFilters();
+  render();
+});
+
+pager.addEventListener("click", (e) => {
+  const btn = e.target.closest("button");
+  if (!btn || btn.disabled) return;
+  page = Number(btn.dataset.page);
+  render();
+  document.querySelector(".catalog")?.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+let sized = pageSize();
+window.addEventListener("resize", () => {
+  const next = pageSize();
+  if (next === sized) return;
+  sized = next;
   render();
 });
 
