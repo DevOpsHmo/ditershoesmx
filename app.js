@@ -459,7 +459,7 @@ function waLink(model, color, size) {
   return `https://wa.me/${WA}?text=${encodeURIComponent(text)}`;
 }
 
-const categoryNames = { tenis: "Tenis", botas: "Botas", flats: "Flats", zapatillas: "Zapatillas", pantuflas: "Pantuflas" };
+const categoryNames = { tenis: "Tenis", botas: "Botas", flats: "Flats", zapatillas: "Zapatillas", pantuflas: "Pantunflas" };
 const categoryOrder = ["tenis", "botas", "flats", "zapatillas", "pantuflas"];
 
 for (const model of models) {
