@@ -519,12 +519,12 @@ function pageButtons(pages) {
   const desktop = pageSize() > 6;
   const shown = desktop
     ? new Set(Array.from({ length: pages }, (_, i) => i + 1))
-    : new Set([1, pages, page - 1, page, page + 1].filter((n) => n >= 1 && n <= pages));
+    : new Set([page - 1, page, page + 1].filter((n) => n >= 1 && n <= pages));
   const nums = [...shown].sort((a, b) => a - b);
   const parts = [];
   let prev = 0;
   for (const n of nums) {
-    if (prev && n - prev > 1) parts.push(`<span class="pager-gap" aria-hidden="true">…</span>`);
+    if (desktop && prev && n - prev > 1) parts.push(`<span class="pager-gap" aria-hidden="true">…</span>`);
     parts.push(`<button type="button" data-page="${n}" ${n === page ? 'aria-current="page"' : ""}>${n}</button>`);
     prev = n;
   }
@@ -538,11 +538,14 @@ function renderPager(pages) {
     pager.innerHTML = "";
     return;
   }
+  const desktop = pageSize() > 6;
+  const prevLabel = desktop ? "Anterior" : "‹";
+  const nextLabel = desktop ? "Siguiente" : "›";
   pager.hidden = false;
   pager.innerHTML = `
-    <button type="button" data-page="${page - 1}" ${page === 1 ? "disabled" : ""}>Anterior</button>
+    <button type="button" class="pager-step" data-page="${page - 1}" aria-label="Página anterior" ${page === 1 ? "disabled" : ""}>${prevLabel}</button>
     ${pageButtons(pages)}
-    <button type="button" data-page="${page + 1}" ${page === pages ? "disabled" : ""}>Siguiente</button>`;
+    <button type="button" class="pager-step" data-page="${page + 1}" aria-label="Página siguiente" ${page === pages ? "disabled" : ""}>${nextLabel}</button>`;
 }
 
 function render() {

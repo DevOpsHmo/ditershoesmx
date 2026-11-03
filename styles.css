@@ -365,6 +365,22 @@ footer a {
   }
   .filters::-webkit-scrollbar { display: none; }
   .filters button { flex: 0 0 auto; }
+  .pager {
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    margin-top: 1.1rem;
+  }
+  .pager button {
+    flex: 0 0 auto;
+    min-width: 2.35rem;
+    height: 2.35rem;
+    padding: 0;
+  }
+  .pager .pager-step {
+    min-width: 2.6rem;
+    font-size: 1.35rem;
+    line-height: 1;
+  }
   .grid {
     grid-template-columns: 1fr 1fr;
     gap: 0.65rem;
