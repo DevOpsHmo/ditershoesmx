@@ -328,6 +328,102 @@ const models = [
     { name: "Negro", hex: "#111", image: "images/zapatillas-carolina-0.jpg" },
     { name: "Miga", hex: "#f3eee6", image: "images/zapatillas-carolina-1.jpg" },
     { name: "Vino", hex: "#6b2430", image: "images/zapatillas-carolina-2.jpg" }
+  ]},
+  { id: "lana", name: "Lana", price: 550, sizes: "2 al 7 MX · Tacón 10", colors: [
+    { name: "Rojo", hex: "#b4232a", image: "images/zapatillas-lana-0.jpg" },
+    { name: "Negro", hex: "#111", image: "images/zapatillas-lana-1.jpg" },
+    { name: "Miga", hex: "#f3eee6", image: "images/zapatillas-lana-2.jpg" },
+    { name: "Vino", hex: "#6b2430", image: "images/zapatillas-lana-3.jpg" }
+  ]},
+  { id: "carry", name: "Carry", price: 550, sizes: "2 al 7 MX · Tacón 8", colors: [
+    { name: "Late", hex: "#f2f0ec", image: "images/zapatillas-carry-0.jpg" },
+    { name: "Ch. Negro", hex: "#111", image: "images/zapatillas-carry-1.jpg" }
+  ]},
+  { id: "marieta", name: "Marieta", price: 550, sizes: "2 al 7 MX · Tacón 8", colors: [
+    { name: "Miga", hex: "#f3eee6", image: "images/zapatillas-marieta-0.jpg" },
+    { name: "Vino", hex: "#6b2430", image: "images/zapatillas-marieta-1.jpg" },
+    { name: "Negro", hex: "#111", image: "images/zapatillas-marieta-2.jpg" }
+  ]},
+  { id: "veronica", name: "Verónica", price: 550, sizes: "3 al 6 MX · Tacón 8", colors: [
+    { name: "Negro", hex: "#111", image: "images/zapatillas-veronica-0.jpg" },
+    { name: "Vino", hex: "#6b2430", image: "images/zapatillas-veronica-1.jpg" },
+    { name: "Miga", hex: "#f3eee6", image: "images/zapatillas-veronica-2.jpg" }
+  ]},
+  { id: "dafne", name: "Dafne", price: 550, sizes: "2 al 7 MX · Tacón 10", colors: [
+    { name: "Oro", hex: "#d4b483", image: "images/zapatillas-dafne-0.jpg" }
+  ]},
+  { id: "marilu", name: "Marilú", price: 550, sizes: "3 al 6 MX · Tacón 8", colors: [
+    { name: "Maquillaje", hex: "#e6cbb8", image: "images/zapatillas-marilu-0.jpg" }
+  ]},
+  { id: "charlotte", name: "Charlotte", price: 550, sizes: "2 al 7 MX · Tacón 8", colors: [
+    { name: "Plata", hex: "#c5c8cc", image: "images/zapatillas-charlotte-0.jpg" }
+  ]},
+  { id: "loretta", name: "Loretta", price: 550, sizes: "2 al 7 MX · Tacón 10", colors: [
+    { name: "Miga", hex: "#f3eee6", image: "images/zapatillas-loretta-0.jpg" }
+  ]},
+  { id: "loretta-polka", name: "Loretta Polka", price: 550, sizes: "3 al 6 MX · Tacón 10", colors: [
+    { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-loretta-polka-0.jpg" },
+    { name: "Rojo", hex: "#c23b4a", image: "images/zapatillas-loretta-polka-1.jpg" },
+    { name: "Azul", hex: "#2a4f86", image: "images/zapatillas-loretta-polka-2.jpg" },
+    { name: "Blanco", hex: "#f7f7f7", image: "images/zapatillas-loretta-polka-3.jpg" }
+  ]},
+  { id: "catalina", name: "Catalina", price: 550, sizes: "2 al 7 MX · Tacón 8", colors: [
+    { name: "Negro", hex: "#111", image: "images/zapatillas-catalina-0.jpg" },
+    { name: "Rojo", hex: "#c41220", image: "images/zapatillas-catalina-1.jpg" }
+  ]},
+  { id: "eva", name: "Eva", price: 485, sizes: "2 al 7 MX · Tacón 5", colors: [
+    { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-eva-0.jpg" },
+    { name: "Camel", hex: "#8a5a32", image: "images/zapatillas-eva-1.jpg" }
+  ]},
+  { id: "arlet", name: "Arlet", price: 495, sizes: "2 al 7 MX · Tacón 7", colors: [
+    { name: "Negro", hex: "#111", image: "images/zapatillas-arlet-0.jpg" },
+    { name: "Vino", hex: "#6b2430", image: "images/zapatillas-arlet-1.jpg" },
+    { name: "Miga", hex: "#f3eee6", image: "images/zapatillas-arlet-2.jpg" }
+  ]},
+  { id: "julieta", name: "Julieta", price: 550, sizes: "3 al 6 MX · Tacón 3", colors: [
+    { name: "Negro", hex: "#111", image: "images/zapatillas-julieta-0.jpg" }
+  ]},
+  { id: "madeline", name: "Madeline", price: 590, sizes: "3 al 6 MX · Tacón 8", colors: [
+    { name: "Blanco", hex: "#f4f0e8", image: "images/zapatillas-madeline-0.jpg" },
+    { name: "Beige", hex: "#e6d3bc", image: "images/zapatillas-madeline-1.jpg" },
+    { name: "Marrón", hex: "#6b4632", image: "images/zapatillas-madeline-2.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-madeline-3.jpg" }
+  ]},
+  { id: "teressa", name: "Teressa", price: 590, sizes: "3 al 6 MX · Tacón 8", colors: [
+    { name: "Beige", hex: "#e6d3bc", image: "images/zapatillas-teressa-0.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/zapatillas-teressa-1.jpg" },
+    { name: "Marrón", hex: "#6b4632", image: "images/zapatillas-teressa-2.jpg" }
+  ]},
+  { id: "atziry", name: "Atziry", price: 590, sizes: "3 al 6 MX · Tacón 8", colors: [
+    { name: "Negro", hex: "#111", image: "images/zapatillas-atziry-0.jpg" },
+    { name: "Vino", hex: "#6b2430", image: "images/zapatillas-atziry-1.jpg" },
+    { name: "Maquillaje", hex: "#e6cbb8", image: "images/zapatillas-atziry-2.jpg" }
+  ]},
+  { id: "pantufla-004", name: "Pantufla 004", price: 500, sizes: "2 al 6 MX", colors: [
+    { name: "Camel", hex: "#c4843a", image: "images/pantuflas-004-0.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/pantuflas-004-1.jpg" },
+    { name: "Beige", hex: "#d8c4a8", image: "images/pantuflas-004-2.jpg" }
+  ]},
+  { id: "pantufla-001", name: "Pantufla 001", price: 500, sizes: "2 al 6 MX", colors: [
+    { name: "Camel", hex: "#c4a06a", image: "images/pantuflas-001-0.jpg" },
+    { name: "Blanco", hex: "#f7f7f7", image: "images/pantuflas-001-1.jpg" },
+    { name: "Rosa", hex: "#e8a8c0", image: "images/pantuflas-001-2.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/pantuflas-001-3.jpg" }
+  ]},
+  { id: "pantufla-005", name: "Pantufla 005", price: 600, sizes: "2 al 6 MX", colors: [
+    { name: "Camel", hex: "#c4843a", image: "images/pantuflas-005-0.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/pantuflas-005-1.jpg" },
+    { name: "Chocolate", hex: "#4a3028", image: "images/pantuflas-005-2.jpg" }
+  ]},
+  { id: "pantufla-006", name: "Pantufla 006", price: 600, sizes: "2 al 6 MX", colors: [
+    { name: "Camel", hex: "#c4843a", image: "images/pantuflas-006-0.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/pantuflas-006-1.jpg" },
+    { name: "Beige", hex: "#d8c4a8", image: "images/pantuflas-006-2.jpg" }
+  ]},
+  { id: "pantufla-003", name: "Pantufla 003", price: 600, sizes: "2 al 6 MX", colors: [
+    { name: "Chocolate", hex: "#5c4030", image: "images/pantuflas-003-0.jpg" },
+    { name: "Negro", hex: "#1c1c1c", image: "images/pantuflas-003-1.jpg" },
+    { name: "Camel", hex: "#c4a06a", image: "images/pantuflas-003-2.jpg" }
   ]}
 ];
 
@@ -363,14 +459,15 @@ function waLink(model, color, size) {
   return `https://wa.me/${WA}?text=${encodeURIComponent(text)}`;
 }
 
-const categoryNames = { tenis: "Tenis", botas: "Botas", flats: "Flats", zapatillas: "Zapatillas" };
-const categoryOrder = ["tenis", "botas", "flats", "zapatillas"];
+const categoryNames = { tenis: "Tenis", botas: "Botas", flats: "Flats", zapatillas: "Zapatillas", pantuflas: "Pantuflas" };
+const categoryOrder = ["tenis", "botas", "flats", "zapatillas", "pantuflas"];
 
 for (const model of models) {
   const src = model.colors[0].image;
   if (src.includes("/botas-")) model.category = "botas";
   else if (src.includes("/flats-")) model.category = "flats";
   else if (src.includes("/zapatillas-")) model.category = "zapatillas";
+  else if (src.includes("/pantuflas-")) model.category = "pantuflas";
   else model.category = "tenis";
 }
 
