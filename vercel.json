@@ -1,5 +1,32 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/:slug(pantunflas|pantunfla|pantuflas|pantufla|Pantunflas|Pantunfla|Pantuflas|Pantufla|PANTUNFLAS|PANTUNFLA|PANTUFLAS|PANTUFLA)",
+      "destination": "/catalogo",
+      "permanent": true
+    },
+    {
+      "source": "/:slug(pantunflas|pantunfla|pantuflas|pantufla|Pantunflas|Pantunfla|Pantuflas|Pantufla|PANTUNFLAS|PANTUNFLA|PANTUFLAS|PANTUFLA)/:path*",
+      "destination": "/catalogo",
+      "permanent": true
+    },
+    {
+      "source": "/catalogo/:slug(pantunflas|pantunfla|pantuflas|pantufla|Pantunflas|Pantunfla|Pantuflas|Pantufla|PANTUNFLAS|PANTUNFLA|PANTUFLAS|PANTUFLA)",
+      "destination": "/catalogo",
+      "permanent": true
+    },
+    {
+      "source": "/catalogo/:slug(pantunflas|pantunfla|pantuflas|pantufla|Pantunflas|Pantunfla|Pantuflas|Pantufla|PANTUNFLAS|PANTUNFLA|PANTUFLAS|PANTUFLA)/:path*",
+      "destination": "/catalogo",
+      "permanent": true
+    },
+    {
+      "source": "/:file(pantunflas|pantunfla|pantuflas|pantufla|Pantunflas|Pantunfla|Pantuflas|Pantufla|PANTUNFLAS|PANTUNFLA|PANTUFLAS|PANTUFLA).html",
+      "destination": "/catalogo",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
