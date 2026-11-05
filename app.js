@@ -398,32 +398,6 @@ const models = [
     { name: "Vino", hex: "#6b2430", image: "images/zapatillas-atziry-1.jpg" },
     { name: "Maquillaje", hex: "#e6cbb8", image: "images/zapatillas-atziry-2.jpg" },
     { name: "Negro", hex: "#111", image: "images/zapatillas-atziry-0.jpg" }
-  ]},
-  { id: "pantufla-004", name: "Pantufla 004", price: 500, sizes: "2 al 6 MX", colors: [
-    { name: "Beige", hex: "#d8c4a8", image: "images/pantuflas-004-2.jpg" },
-    { name: "Camel", hex: "#c4843a", image: "images/pantuflas-004-0.jpg" },
-    { name: "Negro", hex: "#1c1c1c", image: "images/pantuflas-004-1.jpg" }
-  ]},
-  { id: "pantufla-001", name: "Pantufla 001", price: 500, sizes: "2 al 6 MX", colors: [
-    { name: "Rosa", hex: "#e8a8c0", image: "images/pantuflas-001-2.jpg" },
-    { name: "Camel", hex: "#c4a06a", image: "images/pantuflas-001-0.jpg" },
-    { name: "Blanco", hex: "#f7f7f7", image: "images/pantuflas-001-1.jpg" },
-    { name: "Negro", hex: "#1c1c1c", image: "images/pantuflas-001-3.jpg" }
-  ]},
-  { id: "pantufla-005", name: "Pantufla 005", price: 600, sizes: "2 al 6 MX", colors: [
-    { name: "Chocolate", hex: "#4a3028", image: "images/pantuflas-005-2.jpg" },
-    { name: "Camel", hex: "#c4843a", image: "images/pantuflas-005-0.jpg" },
-    { name: "Negro", hex: "#1c1c1c", image: "images/pantuflas-005-1.jpg" }
-  ]},
-  { id: "pantufla-006", name: "Pantufla 006", price: 600, sizes: "2 al 6 MX", colors: [
-    { name: "Camel", hex: "#c4843a", image: "images/pantuflas-006-0.jpg" },
-    { name: "Negro", hex: "#1c1c1c", image: "images/pantuflas-006-1.jpg" },
-    { name: "Beige", hex: "#d8c4a8", image: "images/pantuflas-006-2.jpg" }
-  ]},
-  { id: "pantufla-003", name: "Pantufla 003", price: 600, sizes: "2 al 6 MX", colors: [
-    { name: "Camel", hex: "#c4a06a", image: "images/pantuflas-003-2.jpg" },
-    { name: "Chocolate", hex: "#5c4030", image: "images/pantuflas-003-0.jpg" },
-    { name: "Negro", hex: "#1c1c1c", image: "images/pantuflas-003-1.jpg" }
   ]}
 ];
 
@@ -467,17 +441,63 @@ function waLink(model, color, size) {
   return `https://wa.me/${WA}?text=${encodeURIComponent(text)}`;
 }
 
-const categoryNames = { tenis: "Tenis", botas: "Botas", flats: "Flats", zapatillas: "Zapatillas", pantuflas: "Pantunflas" };
-const categoryOrder = ["tenis", "botas", "flats", "zapatillas", "pantuflas"];
+const categoryNames = { tenis: "Tenis", botas: "Botas", flats: "Flats", zapatillas: "Zapatillas" };
+const categoryOrder = ["tenis", "botas", "flats", "zapatillas"];
+const retiredCategoryKeys = new Set(["pantufla", "pantuflas", "pantunfla", "pantunflas"]);
+
+function categoryKey(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+}
+
+function isRetiredCategory(value) {
+  return retiredCategoryKeys.has(categoryKey(value));
+}
+
+function isExclusivePantuflas(model) {
+  const images = model.colors.flatMap((color) => [color.image, color.worn].filter(Boolean));
+  return /pantufl|pantunfl/i.test([model.id, model.name, ...images].join(" "));
+}
+
+function clearRetiredCategoryRoute() {
+  const url = new URL(window.location.href);
+  let changed = false;
+  for (const key of ["categoria", "category", "cat", "filtro", "filter"]) {
+    if (isRetiredCategory(url.searchParams.get(key))) {
+      url.searchParams.delete(key);
+      changed = true;
+    }
+  }
+  let hash = url.hash.replace(/^#/, "");
+  try { hash = decodeURIComponent(hash); } catch { /* conserva el fragmento ilegible */ }
+  if (isRetiredCategory(hash)) {
+    url.hash = "";
+    changed = true;
+  }
+  if (!changed) return;
+  const next = `${url.pathname}${url.search}${url.hash}`;
+  const current = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  if (next !== current) history.replaceState(null, "", next);
+}
+
+window.addEventListener("hashchange", clearRetiredCategoryRoute);
 
 for (const model of models) {
+  if (isExclusivePantuflas(model)) {
+    model.category = "pantuflas";
+    continue;
+  }
   const src = model.colors[0].image;
   if (src.includes("/botas-")) model.category = "botas";
   else if (src.includes("/flats-")) model.category = "flats";
   else if (src.includes("/zapatillas-")) model.category = "zapatillas";
-  else if (src.includes("/pantuflas-")) model.category = "pantuflas";
   else model.category = "tenis";
 }
+
+const catalogModels = models.filter((model) => !isRetiredCategory(model.category));
 
 function renderFilters() {
   const items = [{ id: "todos", name: "Todos" }, ...categoryOrder.map((id) => ({ id, name: categoryNames[id] }))];
@@ -514,7 +534,7 @@ function card(model, index) {
 }
 
 function currentList() {
-  return active === "todos" ? models : models.filter((m) => m.category === active || m.id === active);
+  return active === "todos" ? catalogModels : catalogModels.filter((m) => m.category === active || m.id === active);
 }
 
 function pageButtons(pages) {
@@ -569,7 +589,8 @@ function render() {
 filters.addEventListener("click", (e) => {
   const btn = e.target.closest("button");
   if (!btn) return;
-  active = btn.dataset.id;
+  const next = btn.dataset.id;
+  active = next === "todos" || categoryNames[next] ? next : "todos";
   page = 1;
   pageWindow = 1;
   renderFilters();
@@ -622,7 +643,7 @@ grid.addEventListener("click", (e) => {
   const wornBtn = e.target.closest(".worn");
   const cardEl = e.target.closest(".card");
   if (!cardEl) return;
-  const model = models.find((m) => m.id === cardEl.dataset.model);
+  const model = catalogModels.find((m) => m.id === cardEl.dataset.model);
 
   if (sizeBtn) {
     cardEl.dataset.size = sizeBtn.dataset.size;
@@ -669,5 +690,6 @@ grid.addEventListener("click", (e) => {
   }
 });
 
+clearRetiredCategoryRoute();
 renderFilters();
 render();
