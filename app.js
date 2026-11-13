@@ -724,7 +724,10 @@ function revealCards() {
       });
     }, { threshold: 0.14, rootMargin: "0px 0px -6% 0px" });
   }
-  cards.forEach((card) => revealObserver.observe(card));
+  cards.forEach((card, index) => {
+    card.style.setProperty("--d", `${Math.min(index, 8) * 55}ms`);
+    revealObserver.observe(card);
+  });
 }
 
 function initStaticReveals() {
@@ -778,6 +781,109 @@ function initMenu() {
   });
 }
 
+function initChrome() {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+  const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+}
+
+function animateCount(el) {
+  const target = Number(el.dataset.count);
+  const prefix = el.dataset.prefix || "";
+  if (!Number.isFinite(target)) return;
+  if (reduceMotion) {
+    el.textContent = prefix + target;
+    return;
+  }
+  const start = performance.now();
+  const tick = (now) => {
+    const t = Math.min(1, (now - start) / 850);
+    const eased = 1 - Math.pow(1 - t, 3);
+    el.textContent = prefix + Math.round(target * eased);
+    if (t < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+function initCounts() {
+  document.querySelectorAll("[data-count='models']").forEach((el) => {
+    el.dataset.count = String(catalogModels.length);
+  });
+  const nodes = [...document.querySelectorAll("[data-count]")];
+  if (!nodes.length) return;
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    nodes.forEach(animateCount);
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      animateCount(entry.target);
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.5 });
+  nodes.forEach((node) => observer.observe(node));
+}
+
+function initFaq() {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll(".faq").forEach((group) => {
+    const items = [...group.querySelectorAll(":scope > details")];
+
+    function openItem(item) {
+      const body = item.querySelector(".faq-body");
+      item.open = true;
+      item.classList.add("is-open");
+      if (reduce) {
+        body.style.height = "auto";
+        return;
+      }
+      body.style.height = "0px";
+      const target = body.scrollHeight;
+      requestAnimationFrame(() => {
+        body.style.height = `${target}px`;
+      });
+    }
+
+    function closeItem(item) {
+      const body = item.querySelector(".faq-body");
+      item.classList.remove("is-open");
+      if (reduce) {
+        body.style.height = "0px";
+        item.open = false;
+        return;
+      }
+      body.style.height = `${body.scrollHeight}px`;
+      requestAnimationFrame(() => {
+        body.style.height = "0px";
+      });
+      body.addEventListener("transitionend", (event) => {
+        if (event.propertyName !== "height" || item.classList.contains("is-open")) return;
+        item.open = false;
+      }, { once: true });
+    }
+
+    items.forEach((item) => {
+      const body = item.querySelector(".faq-body");
+      body.style.height = "0px";
+      item.querySelector("summary").addEventListener("click", (event) => {
+        event.preventDefault();
+        const willOpen = !item.classList.contains("is-open");
+        items.forEach((other) => {
+          if (other !== item && other.classList.contains("is-open")) closeItem(other);
+        });
+        if (willOpen) openItem(item);
+        else closeItem(item);
+      });
+    });
+  });
+}
+
+initChrome();
+initCounts();
+initFaq();
 initMenu();
 initStaticReveals();
 clearRetiredCategoryRoute();
