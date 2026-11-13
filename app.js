@@ -408,12 +408,14 @@ const dialog = document.getElementById("lightbox");
 const dialogImg = document.getElementById("lightbox-img");
 
 function openPhoto() {
-  dialog.showModal();
+  if (dialog) dialog.showModal();
 }
 
-dialog.addEventListener("click", (event) => {
-  if (event.target === dialog) dialog.close();
-});
+if (dialog) {
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+}
 
 let active = "todos";
 let page = 1;
@@ -498,6 +500,7 @@ for (const model of models) {
 }
 
 const catalogModels = models.filter((model) => !isRetiredCategory(model.category));
+const featuredIds = ["dupe-samba", "ofelia", "matilda", "dallas", "claudia", "gali"];
 
 function renderFilters() {
   const items = [{ id: "todos", name: "Todos" }, ...categoryOrder.map((id) => ({ id, name: categoryNames[id] }))];
@@ -514,7 +517,6 @@ function card(model, index) {
   const color = model.colors[0];
   const onHome = document.body.classList.contains("home");
   const eager = index < 2 && !onHome;
-  const wornAttr = color.worn ? ` data-worn="${imgSrc(color.worn)}"` : " hidden";
   return `
     <article class="card" data-model="${model.id}">
       <div class="card-photo">
@@ -534,7 +536,6 @@ function card(model, index) {
         <p class="size-hint" hidden>Elige una talla</p>
         <div class="card-actions">
           <a class="order-link" href="#" target="_blank" rel="noopener" aria-label="Pedir ${model.name} por WhatsApp"><span class="order-full">Pedir por WhatsApp</span><span class="order-short">Pedir</span></a>
-          <button type="button" class="worn"${wornAttr}>Ver puesta</button>
         </div>
       </div>
     </article>`;
@@ -594,40 +595,11 @@ function render() {
   revealCards();
 }
 
-filters.addEventListener("click", (e) => {
-  const btn = e.target.closest("button");
-  if (!btn) return;
-  const next = btn.dataset.id;
-  active = next === "todos" || categoryNames[next] ? next : "todos";
-  page = 1;
-  pageWindow = 1;
-  renderFilters();
-  render();
-});
-
-pager.addEventListener("click", (e) => {
-  const btn = e.target.closest("button");
-  if (!btn || btn.disabled) return;
-  if (btn.dataset.shift) {
-    pageWindow += Number(btn.dataset.shift);
-    render();
-    return;
-  }
-  page = Number(btn.dataset.page);
-  render();
-  const catalog = document.getElementById("catalogo");
-  if (catalog) catalog.scrollIntoView({ behavior: "smooth", block: "start" });
-  else window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-let sized = pageSize();
-window.addEventListener("resize", () => {
-  const next = pageSize();
-  if (next === sized) return;
-  sized = next;
-  if (next === 6) pageWindow = Math.max(1, page - 1);
-  render();
-});
+function renderFeatured() {
+  const list = featuredIds.map((id) => catalogModels.find((model) => model.id === id)).filter(Boolean);
+  grid.innerHTML = list.map((model, index) => card(model, index)).join("");
+  revealCards();
+}
 
 function selectedColor(cardEl, model) {
   const activeSwatch = cardEl.querySelector(".swatches button.active");
@@ -645,12 +617,11 @@ function syncOrder(cardEl, model) {
   link.href = waLink(model, selectedColor(cardEl, model), size);
 }
 
-grid.addEventListener("click", (e) => {
+function onGridClick(e) {
   const sizeBtn = e.target.closest(".sizes button");
   const order = e.target.closest(".order-link");
   const swatch = e.target.closest(".swatches button");
   const img = e.target.closest(".card img");
-  const wornBtn = e.target.closest(".worn");
   const cardEl = e.target.closest(".card");
   if (!cardEl) return;
   const model = catalogModels.find((m) => m.id === cardEl.dataset.model);
@@ -684,29 +655,56 @@ grid.addEventListener("click", (e) => {
     swatch.classList.add("active");
     swatch.setAttribute("aria-pressed", "true");
     syncOrder(cardEl, model);
-    const worn = cardEl.querySelector(".worn");
-    if (worn) {
-      if (color.worn) {
-        worn.hidden = false;
-        worn.dataset.worn = imgSrc(color.worn);
-      } else {
-        worn.hidden = true;
-      }
-    }
   }
 
-  if (img) {
+  if (img && dialogImg) {
     dialogImg.src = img.src;
     dialogImg.alt = img.alt;
     openPhoto();
   }
+}
 
-  if (wornBtn && !wornBtn.hidden) {
-    dialogImg.src = wornBtn.dataset.worn;
-    dialogImg.alt = `${model.name} puesta`;
-    openPhoto();
-  }
-});
+function bindCatalog() {
+  filters.addEventListener("click", (e) => {
+    const btn = e.target.closest("button");
+    if (!btn) return;
+    const next = btn.dataset.id;
+    active = next === "todos" || categoryNames[next] ? next : "todos";
+    page = 1;
+    pageWindow = 1;
+    renderFilters();
+    render();
+  });
+
+  pager.addEventListener("click", (e) => {
+    const btn = e.target.closest("button");
+    if (!btn || btn.disabled) return;
+    if (btn.dataset.shift) {
+      pageWindow += Number(btn.dataset.shift);
+      render();
+      return;
+    }
+    page = Number(btn.dataset.page);
+    render();
+    const catalog = document.getElementById("catalogo");
+    if (catalog) catalog.scrollIntoView({ behavior: "smooth", block: "start" });
+    else window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  grid.addEventListener("click", onGridClick);
+
+  let sized = pageSize();
+  window.addEventListener("resize", () => {
+    const next = pageSize();
+    if (next === sized) return;
+    sized = next;
+    if (next === 6) pageWindow = Math.max(1, page - 1);
+    render();
+  });
+
+  renderFilters();
+  render();
+}
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 let revealObserver = null;
@@ -783,5 +781,8 @@ function initMenu() {
 initMenu();
 initStaticReveals();
 clearRetiredCategoryRoute();
-renderFilters();
-render();
+if (filters && grid && pager) bindCatalog();
+else if (grid) {
+  grid.addEventListener("click", onGridClick);
+  renderFeatured();
+}

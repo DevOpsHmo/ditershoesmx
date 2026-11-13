@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="format-detection" content="telephone=no" />
-  <title>DiterShoes · Catálogo</title>
+  <title>DiterShoes · Inicio</title>
   <link rel="icon" href="favicon.ico" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -37,9 +37,10 @@
   <header class="site-header">
     <a class="brand" href="/">DITERSHOES</a>
     <nav id="site-nav" class="site-nav" aria-label="Principal">
-      <a href="#catalogo">Catálogo</a>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#envios">Envíos</a>
+      <a href="/" aria-current="page">Inicio</a>
+      <a href="/catalogo">Catálogo</a>
+      <a href="/nosotros">Nosotros</a>
+      <a href="/envios">Envíos</a>
       <a class="btn-wa nav-wa" href="https://wa.me/526621746719?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20DiterShoes." target="_blank" rel="noopener">Pedir por WhatsApp</a>
     </nav>
     <div class="header-end">
@@ -55,31 +56,37 @@
       <div class="hero-copy">
         <h1 class="hero-title">Calzado que <br class="br-d">se siente tuyo</h1>
         <p class="lede"><span class="lede-cats">Tenis, botas, flats y zapatillas · </span>Tallas 2 al 7 MX</p>
-        <a class="btn-catalog" href="#catalogo">Ver catálogo</a>
+        <a class="btn-catalog" href="/catalogo">Ver catálogo</a>
       </div>
       <div class="hero-photo">
         <img src="images/dupe-samba-cafe.webp" alt="Tenis Dupe Samba café" width="563" height="752" fetchpriority="high" decoding="async" />
       </div>
     </section>
 
-    <section class="catalog" id="catalogo" aria-labelledby="catalogo-title">
-      <h2 id="catalogo-title" class="visually-hidden">Catálogo</h2>
-      <div class="filters-bar">
-        <div class="filters" id="filters"></div>
+    <section class="catalog featured" aria-labelledby="destacados-title">
+      <div class="featured-head">
+        <h2 id="destacados-title">Destacados</h2>
+        <a href="/catalogo">Ver catálogo</a>
       </div>
       <div class="grid" id="grid"></div>
-      <nav class="pager" id="pager" aria-label="Páginas del catálogo" hidden></nav>
     </section>
 
-    <section class="notes">
-      <article class="note reveal" id="nosotros">
+    <section class="paths" aria-label="Secciones">
+      <a class="path" href="/catalogo">
+        <h2>Catálogo</h2>
+        <p>Tenis, botas, flats y zapatillas. Tallas del 2 al 7 MX, según el modelo.</p>
+        <span>Ver catálogo</span>
+      </a>
+      <a class="path" href="/nosotros">
         <h2>Nosotros</h2>
-        <p>En DiterShoes encuentras calzado en tendencia: Dupe Samba, Samba Low, Samba Jane, Ofelia, Matilda, tenis, botas, flats y zapatillas. Hay tallas del 2 al 7 MX, según el modelo. Los pedidos se hacen por WhatsApp.</p>
-      </article>
-      <article class="note reveal" id="envios">
+        <p>Calzado en tendencia: Dupe Samba, Ofelia, Matilda y más. Pedidos por WhatsApp.</p>
+        <span>Conocer DiterShoes</span>
+      </a>
+      <a class="path" href="/envios">
         <h2>Envíos</h2>
-        <p>Los pedidos se hacen por WhatsApp. Escríbenos al <a href="https://wa.me/526621746719?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20DiterShoes." target="_blank" rel="noopener">662 174 6719</a> o al <a href="https://wa.me/526621383780?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20DiterShoes." target="_blank" rel="noopener">662 138 3780</a> para confirmar modelo, talla y envío.</p>
-      </article>
+        <p>Arma tu pedido por WhatsApp y consulta ahí costos y tiempos de envío.</p>
+        <span>Cómo pedir</span>
+      </a>
     </section>
   </main>
 
