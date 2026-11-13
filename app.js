@@ -512,23 +512,30 @@ function imgSrc(path) {
 
 function card(model, index) {
   const color = model.colors[0];
-  const eager = index < 2;
+  const onHome = document.body.classList.contains("home");
+  const eager = index < 2 && !onHome;
+  const wornAttr = color.worn ? ` data-worn="${imgSrc(color.worn)}"` : " hidden";
   return `
     <article class="card" data-model="${model.id}">
-      <img src="${imgSrc(color.image)}" alt="${model.name} ${color.name}" width="800" height="1000" style="aspect-ratio:4/5" ${eager ? 'fetchpriority="high"' : ''} decoding="async" />
+      <div class="card-photo">
+        <img src="${imgSrc(color.image)}" alt="${model.name} ${color.name}" width="800" height="1000" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" />
+      </div>
       <div class="card-body">
-        <p class="model">${model.name}</p>
-        <h3 class="color-name">${color.name}</h3>
+        <h3 class="model">${model.name}</h3>
+        <p class="price">${money(model.price)}</p>
         <p class="meta">Tallas ${model.sizes}</p>
+        <p class="color-name">${color.name}</p>
+        <div class="swatches">
+          ${model.colors.map((c, i) => `<button type="button" class="${i === 0 ? "active" : ""}" style="background:${c.hex}" data-index="${i}" aria-label="${c.name}" aria-pressed="${i === 0 ? "true" : "false"}"></button>`).join("")}
+        </div>
         <div class="sizes" role="group" aria-label="Talla MX">
-          ${sizeButtons(model).map((s) => `<button type="button" data-size="${s}">${s}</button>`).join("")}
+          ${sizeButtons(model).map((s) => `<button type="button" data-size="${s}" aria-pressed="false"><span>${s}</span><span class="mx"> MX</span></button>`).join("")}
         </div>
         <p class="size-hint" hidden>Elige una talla</p>
-        <p class="price">${money(model.price)}</p>
-        <div class="swatches">
-          ${model.colors.map((c, i) => `<button type="button" class="${i === 0 ? "active" : ""}" style="background:${c.hex}" data-index="${i}" aria-label="${c.name}"></button>`).join("")}
+        <div class="card-actions">
+          <a class="order-link" href="#" target="_blank" rel="noopener" aria-label="Pedir ${model.name} por WhatsApp"><span class="order-full">Pedir por WhatsApp</span><span class="order-short">Pedir</span></a>
+          <button type="button" class="worn"${wornAttr}>Ver puesta</button>
         </div>
-        <a class="btn order-link" href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>
       </div>
     </article>`;
 }
@@ -584,6 +591,7 @@ function render() {
     ? slice.map((model, index) => card(model, index)).join("")
     : `<p class="empty-cat">Pronto verás los modelos de ${categoryNames[active] || "esta categoría"}.</p>`;
   renderPager(pages);
+  revealCards();
 }
 
 filters.addEventListener("click", (e) => {
@@ -607,7 +615,9 @@ pager.addEventListener("click", (e) => {
   }
   page = Number(btn.dataset.page);
   render();
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  const catalog = document.getElementById("catalogo");
+  if (catalog) catalog.scrollIntoView({ behavior: "smooth", block: "start" });
+  else window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 let sized = pageSize();
@@ -647,8 +657,12 @@ grid.addEventListener("click", (e) => {
 
   if (sizeBtn) {
     cardEl.dataset.size = sizeBtn.dataset.size;
-    cardEl.querySelectorAll(".sizes button").forEach((b) => b.classList.remove("active"));
+    cardEl.querySelectorAll(".sizes button").forEach((b) => {
+      b.classList.remove("active");
+      b.setAttribute("aria-pressed", "false");
+    });
     sizeBtn.classList.add("active");
+    sizeBtn.setAttribute("aria-pressed", "true");
     cardEl.querySelector(".size-hint").hidden = true;
     syncOrder(cardEl, model);
   }
@@ -663,8 +677,12 @@ grid.addEventListener("click", (e) => {
     cardEl.querySelector("img").src = imgSrc(color.image);
     cardEl.querySelector("img").alt = `${model.name} ${color.name}`;
     cardEl.querySelector(".color-name").textContent = color.name;
-    cardEl.querySelectorAll(".swatches button").forEach((b) => b.classList.remove("active"));
+    cardEl.querySelectorAll(".swatches button").forEach((b) => {
+      b.classList.remove("active");
+      b.setAttribute("aria-pressed", "false");
+    });
     swatch.classList.add("active");
+    swatch.setAttribute("aria-pressed", "true");
     syncOrder(cardEl, model);
     const worn = cardEl.querySelector(".worn");
     if (worn) {
@@ -690,6 +708,80 @@ grid.addEventListener("click", (e) => {
   }
 });
 
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let revealObserver = null;
+
+function revealCards() {
+  const cards = grid.querySelectorAll(".card");
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    cards.forEach((card) => card.classList.add("is-in"));
+    return;
+  }
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-in");
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.14, rootMargin: "0px 0px -6% 0px" });
+  }
+  cards.forEach((card) => revealObserver.observe(card));
+}
+
+function initStaticReveals() {
+  const nodes = document.querySelectorAll(".reveal");
+  if (!nodes.length) return;
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    nodes.forEach((node) => node.classList.add("is-in"));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-in");
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.18 });
+  nodes.forEach((node) => observer.observe(node));
+}
+
+function initMenu() {
+  const toggle = document.querySelector(".menu-toggle");
+  const nav = document.getElementById("site-nav");
+  if (!toggle || !nav) return;
+
+  function close() {
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Abrir menú");
+    nav.classList.remove("is-open");
+    document.body.classList.remove("nav-open");
+  }
+
+  function open() {
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Cerrar menú");
+    nav.classList.add("is-open");
+    document.body.classList.add("nav-open");
+  }
+
+  toggle.addEventListener("click", () => {
+    if (toggle.getAttribute("aria-expanded") === "true") close();
+    else open();
+  });
+  nav.addEventListener("click", (event) => {
+    if (event.target.closest("a")) close();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") close();
+  });
+  window.addEventListener("resize", () => {
+    if (window.matchMedia("(min-width: 861px)").matches) close();
+  });
+}
+
+initMenu();
+initStaticReveals();
 clearRetiredCategoryRoute();
 renderFilters();
 render();
