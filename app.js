@@ -778,6 +778,23 @@ function initMenu() {
   });
 }
 
+function initFaq() {
+  document.querySelectorAll(".faq").forEach((group) => {
+    const items = [...group.querySelectorAll(":scope > details")];
+    items.forEach((item) => {
+      item.querySelector("summary").addEventListener("click", (event) => {
+        event.preventDefault();
+        const willOpen = !item.open;
+        items.forEach((other) => {
+          if (other !== item) other.open = false;
+        });
+        item.open = willOpen;
+      });
+    });
+  });
+}
+
+initFaq();
 initMenu();
 initStaticReveals();
 clearRetiredCategoryRoute();
