@@ -794,7 +794,15 @@ function initFaq() {
   });
 }
 
+function initModelCount() {
+  const total = String(catalogModels.length);
+  document.querySelectorAll("[data-models]").forEach((el) => {
+    el.textContent = total;
+  });
+}
+
 initFaq();
+initModelCount();
 initMenu();
 initStaticReveals();
 clearRetiredCategoryRoute();

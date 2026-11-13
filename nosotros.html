@@ -13,7 +13,7 @@
   <link rel="preload" as="font" href="fonts/inter-latin.woff2" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="fill">
   <header class="site-header">
     <a class="brand" href="/">DITERSHOES</a>
     <nav id="site-nav" class="site-nav" aria-label="Principal">
@@ -32,23 +32,37 @@
   </header>
 
   <main class="page">
-    <div class="sheet">
-    <div class="sheet-lead">
-    <h1>Nosotros</h1>
-    <p>Diter Shoes es de Hermosillo, Sonora. Empezó a inicios de 2026.</p>
-    <p class="stat"><strong>+50 clientas</strong><span>Siempre vuelven a comprar</span></p>
-    <a class="btn-catalog" href="/catalogo">Ver catálogo</a>
+    <div class="page-top">
+      <div class="sheet-lead">
+        <h1>Nosotros</h1>
+        <p>Diter Shoes es de Hermosillo, Sonora. Empezó a inicios de 2026.</p>
+        <div class="metrics">
+          <p class="stat"><strong>+50 clientas</strong><span>Siempre vuelven a comprar</span></p>
+          <p class="stat"><strong>3</strong><span>días hábiles de envío</span></p>
+          <p class="stat"><strong data-models>0</strong><span>modelos en catálogo</span></p>
+        </div>
+        <div class="page-actions">
+          <a class="btn-catalog" href="/catalogo">Ver catálogo</a>
+          <a class="btn-wa" href="https://wa.me/526621746719?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20DiterShoes." target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+        </div>
+      </div>
+      <div class="mosaic">
+        <img src="images/dupe-samba-cafe.webp" alt="Dupe Samba café" width="563" height="752" />
+        <img src="images/ofelia-negro.webp" alt="Ofelia negro" width="800" height="1000" />
+        <img src="images/matilda-olivo.webp" alt="Matilda olivo" width="800" height="1000" />
+      </div>
     </div>
     <div class="facts">
       <article class="fact">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
         <h2>Por ahora, solo en línea</h2>
         <p>Vendemos solo en línea por el momento. Próximamente abriremos una sucursal.</p>
       </article>
       <article class="fact">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l2.2 4.6L19 8.2l-3.5 3.4.8 4.9L12 14.8 7.7 16.5l.8-4.9L5 8.2l4.8-.6L12 3z"/></svg>
         <h2>Lo que nos distingue</h2>
         <p>Calidad, precios y modelos en tendencia. Las clientas siempre vuelven a comprar.</p>
       </article>
-    </div>
     </div>
   </main>
 

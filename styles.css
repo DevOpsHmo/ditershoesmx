@@ -472,11 +472,71 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .path p { margin: 0; color: #3a342f; line-height: 1.5; }
 .path span { margin-top: auto; padding-top: 0.8rem; font-weight: 600; font-size: 0.92rem; }
 
+body.fill {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+body.fill main.page { flex: 1 0 auto; }
+body.fill footer { margin-top: auto; }
 .page {
-  width: min(1180px, calc(100% - 2 * var(--gutter)));
+  width: 100%;
   max-width: none;
-  margin: 0 auto;
-  padding: 1.35rem 0 2.4rem;
+  margin: 0;
+  padding: 1.6rem var(--gutter) 2.2rem;
+}
+.page-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  align-items: stretch;
+  margin-bottom: 1.15rem;
+}
+.mosaic {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.7rem;
+  min-height: 420px;
+}
+.mosaic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1.25rem;
+  background: #efe6dc;
+}
+.mosaic img:first-child { grid-row: 1 / span 2; }
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin: 0.4rem 0 1rem;
+}
+.metrics .stat { margin: 0; min-height: 7.5rem; justify-content: center; }
+.metrics .stat strong { font-size: clamp(2.4rem, 3vw, 3.2rem); }
+.page-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; align-items: center; }
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin: 0.2rem 0 1.2rem;
+  padding: 0;
+  list-style: none;
+}
+.steps li {
+  background: #fff;
+  border-radius: 1.2rem;
+  padding: 1.15rem 1.15rem 1.25rem;
+  box-shadow: var(--shadow);
+  min-height: 8.5rem;
+}
+.steps strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.95rem;
+  letter-spacing: -0.02em;
 }
 .sheet {
   display: grid;
@@ -492,23 +552,23 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .envios-layout .sheet-lead { grid-row: 1 / span 2; }
 .envios-layout .fact:last-child { grid-column: 2 / -1; }
 .page h1 {
-  margin: 0 0 1rem;
-  font-size: clamp(2.3rem, 4vw, 3.4rem);
+  margin: 0 0 0.85rem;
+  font-size: clamp(3.1rem, 4.4vw, 4.8rem);
   font-weight: 700;
-  letter-spacing: -0.042em;
-  line-height: 1.02;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
 }
 .page h2 {
-  margin: 1.6rem 0 0.45rem;
-  font-size: 1.25rem;
+  margin: 1.35rem 0 0.55rem;
+  font-size: clamp(1.35rem, 1.8vw, 1.7rem);
   font-weight: 680;
   letter-spacing: -0.03em;
 }
 .page p {
   margin: 0 0 0.9rem;
   color: #3a342f;
-  line-height: 1.65;
-  font-size: 1.05rem;
+  line-height: 1.6;
+  font-size: 1.18rem;
 }
 .page a:not(.btn-catalog):not(.btn-wa) { color: inherit; }
 .page .btn-catalog,
@@ -532,22 +592,33 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .stat span { color: #5e564f; font-size: 0.95rem; }
 .facts {
   display: grid;
-  gap: 0.7rem;
-  margin: 0.3rem 0 0.2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin: 0.2rem 0 0.4rem;
+}
+.facts:has(article:nth-child(2):last-child) {
+  grid-template-columns: 1fr 1fr;
 }
 .fact {
   background: #fff;
-  border-radius: 1.15rem;
-  padding: 1rem 1.15rem 1.05rem;
+  border-radius: 1.25rem;
+  padding: 1.35rem 1.4rem 1.45rem;
   box-shadow: var(--shadow);
+  min-height: 11rem;
 }
-.fact h2 { margin: 0 0 0.3rem; font-size: 1.05rem; }
-.fact p { margin: 0; }
+.fact .icon {
+  width: 1.7rem;
+  height: 1.7rem;
+  margin-bottom: 0.7rem;
+  color: var(--camel-deep);
+}
+.fact h2 { margin: 0 0 0.4rem; font-size: 1.28rem; }
+.fact p { margin: 0; font-size: 1.12rem; }
 .faq {
   margin-top: 0.35rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.55rem 0.85rem;
+  grid-template-columns: 1fr;
+  gap: 0.7rem;
 }
 .faq details {
   background: #fff;
@@ -716,11 +787,17 @@ footer a:hover { text-decoration: underline; text-underline-offset: 0.18em; }
     font-size: 1.02rem;
   }
   .btn-catalog:hover { background: #a67958; }
+  .page-top,
   .sheet,
+  .metrics,
+  .steps,
   .faq { grid-template-columns: 1fr; }
+  .mosaic { min-height: 280px; }
   .sheet-lead,
   .envios-layout .sheet-lead { grid-row: auto; }
   .envios-layout .fact:last-child { grid-column: auto; }
+  .fact, .steps li, .metrics .stat { min-height: 0; }
+  .facts, .facts:has(article:nth-child(2):last-child) { grid-template-columns: 1fr; }
   .hero-photo {
     margin-top: 1.05rem;
     aspect-ratio: 5 / 4.15;
